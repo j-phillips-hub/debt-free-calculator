@@ -1,5 +1,38 @@
+:root {
+  /* Primary */
+  --clr-orangish-yellow: hsl(39, 85%, 67%);
+  --clr-medium-blue: hsl(231, 89%, 54%);
+  /* Neutral */
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-text: hsl(0, 0%, 5%);
+  --clr-light-grey: hsl(0, 0%, 95%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  padding: 1.5625rem 1rem;
+}
+
 .App {
+  color: var(--clr-text);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   font-family: "Outfit", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--clr-text);
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.Input__Container {
+  display: flex;
+  flex-direction: column;
 }
