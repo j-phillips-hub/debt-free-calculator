@@ -37,21 +37,18 @@ class ExtraPayments extends React.Component {
             </label>
             <input className="form__input" type="text" />
           </form>
-          <select name="" id="">
-            <option value="">Month</option>
-            <option value="">January</option>
-            <option value="">Febuary</option>
-            <option value="">March</option>
-            <option value="">April</option>
-            <option value="">May</option>
-            <option value="">June</option>
-            <option value="">July</option>
-            <option value="">August</option>
-            <option value="">September</option>
-            <option value="">October</option>
-            <option value="">November</option>
-            <option value="">December</option>
-          </select>
+
+          <div className="selectContainer">
+            <div className="select">
+              <div>
+                <span id="selectText">Month</span>
+              </div>
+
+              <div>
+                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex extraPaymentsFlex">
@@ -64,37 +61,30 @@ class ExtraPayments extends React.Component {
             </label>
             <input className="form__input" type="text" />
           </form>
-          <select name="" id="">
-            <option value="" selected>
-              Month
-            </option>
-            <option value="">Month</option>
-            <option value="">January</option>
-            <option value="">Febuary</option>
-            <option value="">March</option>
-            <option value="">April</option>
-            <option value="">May</option>
-            <option value="">June</option>
-            <option value="">July</option>
-            <option value="">August</option>
-            <option value="">September</option>
-            <option value="">October</option>
-            <option value="">November</option>
-            <option value="">December</option>
-          </select>
 
-          <select name="" id="">
-            <option value="">Year</option>
-            <option value="">2022</option>
-            <option value="">2023</option>
-            <option value="">2024</option>
-            <option value="">2025</option>
-            <option value="">2026</option>
-            <option value="">2027</option>
-            <option value="">2028</option>
-            <option value="">2029</option>
-            <option value="">2030</option>
-          </select>
+          <div className="selectContainer">
+            <div className="select">
+              <div>
+                <span id="selectText">Month</span>
+              </div>
+
+              <div>
+                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
+
+          <div className="selectContainer">
+            <div className="select">
+              <div>
+                <span id="selectText">Year</span>
+              </div>
+
+              <div>
+                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     );

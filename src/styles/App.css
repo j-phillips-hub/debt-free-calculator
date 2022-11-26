@@ -44,10 +44,6 @@ hr {
   opacity: 0.2;
 }
 
-select {
-  padding: 0.75rem 0 0.75rem 0.5rem;
-}
-
 .app {
   color: var(--clr-text);
   display: grid;
