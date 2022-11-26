@@ -1,0 +1,22 @@
+.Btn {
+  background-color: var(--clr-medium-blue);
+  color: var(--clr-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.Btn:hover {
+  background-color: hsl(232, 89%, 25%);
+}
+
+.Btn--Small {
+  padding: 1em 2.7em;
+}
+
+.Calculate {
+  margin-top: 0.3rem;
+}

@@ -1,3 +1,22 @@
 .FormSection {
   background-color: var(--clr-light-grey);
 }
+
+.Form__Label {
+  margin-bottom: 0.375rem;
+}
+
+.Form__Input {
+  margin-bottom: 1rem;
+  padding: 0.75rem 0 0.75rem 0.5rem;
+}
+
+.Seperator {
+  margin-bottom: 1rem;
+}
+
+.IntrestRate {
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
