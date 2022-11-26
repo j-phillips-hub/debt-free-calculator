@@ -1,5 +1,6 @@
 .FormSection {
   background-color: var(--clr-light-grey);
+  grid-area: f;
 }
 
 .Form__Label {

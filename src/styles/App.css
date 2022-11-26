@@ -39,6 +39,9 @@ hr {
 .App {
   color: var(--clr-text);
   display: grid;
+  grid-template-areas:
+    "f h"
+    "e e";
   grid-template-columns: 1fr 1fr;
   font-family: "Outfit", sans-serif;
   font-size: 0.8rem;
@@ -50,6 +53,11 @@ hr {
 
 .Flex {
   display: flex;
+}
+
+.FlexReverse {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .InputContainer {
