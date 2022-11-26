@@ -16,6 +16,13 @@
   margin: 0;
 }
 
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 section {
   padding: 1.5625rem 1rem;
 }
