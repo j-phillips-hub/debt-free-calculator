@@ -1,6 +1,6 @@
 :root {
   /* Primary */
-  --clr-orangish-yellow: hsl(39, 85%, 67%);
+  --clr-orangish-yellow: hsl(39, 94%, 66%);
   --clr-medium-blue: hsl(231, 89%, 54%);
   /* Neutral */
   --clr-white: hsl(0, 0%, 100%);
@@ -20,9 +20,20 @@ section {
   padding: 1.5625rem 1rem;
 }
 
+input[type="text"] {
+  color: var(--clr-text);
+  font-weight: 700;
+}
+
 input:focus {
   outline: none;
   border: 1px solid var(--clr-medium-blue);
+}
+
+hr {
+  background-color: var(--clr-text);
+  border: 1px solid var(--clr-text);
+  opacity: 0.2;
 }
 
 .App {

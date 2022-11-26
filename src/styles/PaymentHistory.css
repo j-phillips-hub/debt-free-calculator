@@ -1,0 +1,26 @@
+.PaymentHistory {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.PaymentHistory__Dollar {
+  font-size: 1.7rem;
+  display: inline-block;
+  transform: translate(-8px, -18px);
+}
+
+.PaymentHistory__Num {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.TotalPaid__Flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.625rem 0;
+}
+
+.CompareRates {
+  text-align: center;
+  margin-top: 5.8125rem;
+}
