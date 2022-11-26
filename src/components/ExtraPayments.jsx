@@ -15,28 +15,40 @@ class ExtraPayments extends React.Component {
           amortization scheduale' link above.
         </p>
 
-        <div className="flex">
+        <div className="flex extraPaymentsFlex">
           <form className="flexReverse extraPaymentForm">
-            <label htmlFor="extra-monthly-payment">
+            <label
+              className="extraPaymentForm__label"
+              htmlFor="extra-monthly-payment"
+            >
               to your monthly payment
             </label>
-            <input className="extraPaymentForm__input" type="text" />
+            <input className="form__input" type="text" />
           </form>
         </div>
 
-        <div className="flex">
+        <div className="flex extraPaymentsFlex">
           <form className="flexReverse extraPaymentForm">
-            <label htmlFor="extra-yearly-payment">
+            <label
+              className="extraPaymentForm__label"
+              htmlFor="extra-yearly-payment"
+            >
               as an extra yearly payment occurring every:
             </label>
-            <input className="extraPaymentForm__input" type="text" />
+            <input className="form__input" type="text" />
           </form>
+          <input type="text" />
         </div>
 
-        <div className="flex">
+        <div className="flex extraPaymentsFlex">
           <form className="flexReverse extraPaymentForm">
-            <label htmlFor="one-time-payment">as a one-time payment in:</label>
-            <input className="extraPaymentForm__input" type="text" />
+            <label
+              className="extraPaymentForm__label"
+              htmlFor="one-time-payment"
+            >
+              as a one-time payment in:
+            </label>
+            <input className="form__input" type="text" />
           </form>
           <input type="text" />
           <input type="text" />

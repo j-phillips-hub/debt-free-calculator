@@ -3,10 +3,18 @@
   border-top: 1px solid var(--clr-text);
 }
 
+.extraPaymentsFlex {
+  justify-content: space-between;
+}
+
 .extraPaymentsSection__text {
   margin-bottom: 1rem;
 }
 
 .extraPaymentForm {
   gap: 2rem;
+}
+
+.extraPaymentForm__label {
+  margin-top: 0.75rem;
 }
