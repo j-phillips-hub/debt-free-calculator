@@ -9,30 +9,30 @@ class PaymentHistory extends React.Component {
 
   render() {
     return (
-      <section className="PaymentHistorySection">
-        <div className="PaymentHistory">
-          <p className="PaymentHistory__Text">Monthly Payments</p>
-          <span className="PaymentHistory__Dollar">$</span>
-          <span className="PaymentHistory__Num">93.22</span>
+      <section className="paymentHistorySection">
+        <div className="paymentHistory">
+          <p className="paymentHistory__text">Monthly Payments</p>
+          <span className="paymentHistory__dollar">$</span>
+          <span className="paymentHistory__num">93.22</span>
         </div>
 
-        <div className="TotalPaid">
-          <p className="TotalPaid__Flex">
+        <div className="totalPaid">
+          <p className="totalPaid__flex">
             <span>Total Principal Paid</span>
             <span>$5,000</span>
           </p>
           <hr />
-          <p className="TotalPaid__Flex">
+          <p className="totalPaid__flex">
             <span> Total Interest Paid</span>
             <span>$80.89</span>
           </p>
         </div>
 
-        <div className="CompareRates">
-          <button className="Btn Btn--Large CompareLoan">
+        <div className="compareRates">
+          <button className="btn btn--large compareLoan">
             compare loan rates
           </button>
-          <button className="Btn BtnAnchor">Show amortization schedule</button>
+          <button className="btn btnAnchor">Show amortization schedule</button>
         </div>
       </section>
     );

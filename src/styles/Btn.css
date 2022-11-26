@@ -1,4 +1,4 @@
-.Btn {
+.btn {
   background-color: var(--clr-medium-blue);
   color: var(--clr-white);
   font-weight: 600;
@@ -9,44 +9,44 @@
   transition: all ease-in-out 0.2s;
 }
 
-.Btn:hover {
+.btn:hover {
   background-color: hsl(232, 89%, 25%);
 }
 
-.Btn--Small {
+.btn--small {
   padding: 1em 2.7em;
 }
 
-.Btn--Large {
+.btn--large {
   width: 100%;
   padding: 0.8em 0;
 }
 
-.Calculate {
+.calculate {
   margin-top: 0.3rem;
 }
 
-.CompareLoan {
+.compareLoan {
   background-color: transparent;
   color: var(--clr-text);
   outline: 3px solid var(--clr-orangish-yellow);
   margin-bottom: 1.2rem;
 }
 
-.CompareLoan:hover,
-.CompareLoan:focus {
+.compareLoan:hover,
+.compareLoan:focus {
   background-color: var(--clr-orangish-yellow);
 }
 
-.BtnAnchor {
+.btnAnchor {
   background-color: transparent;
   color: var(--clr-medium-blue);
   font-weight: 500;
   text-transform: initial;
 }
 
-.BtnAnchor:hover,
-.BtnAnchor:focus {
+.btnAnchor:hover,
+.btnAnchor:focus {
   background-color: transparent;
   outline: none;
   text-decoration: underline;

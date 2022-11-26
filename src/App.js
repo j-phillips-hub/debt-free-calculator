@@ -5,7 +5,7 @@ import ExtraPayments from './components/ExtraPayments';
 
 function App() {
   return (
-    <main className="App">
+    <main className="app">
       <Form />
       <PaymentHistory />
       <ExtraPayments />

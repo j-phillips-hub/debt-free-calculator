@@ -1,4 +1,12 @@
-.ExtraPaymentsSection {
+.extraPaymentsSection {
   grid-area: e;
   border-top: 1px solid var(--clr-text);
+}
+
+.extraPaymentsSection__text {
+  margin-bottom: 1rem;
+}
+
+.extraPaymentForm {
+  gap: 2rem;
 }

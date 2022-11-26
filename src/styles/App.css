@@ -36,7 +36,7 @@ hr {
   opacity: 0.2;
 }
 
-.App {
+.app {
   color: var(--clr-text);
   display: grid;
   grid-template-areas:
@@ -51,15 +51,15 @@ hr {
   max-height: 800px;
 }
 
-.Flex {
+.flex {
   display: flex;
 }
 
-.FlexReverse {
+.flexReverse {
   display: flex;
   flex-direction: row-reverse;
 }
 
-.InputContainer {
+.inputContainer {
   flex-direction: column;
 }
