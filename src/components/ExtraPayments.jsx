@@ -1,4 +1,5 @@
 import React from "react";
+import Input from "./Input";
 import "../styles/ExtraPayments.css";
 
 class ExtraPayments extends React.Component {
@@ -15,27 +16,25 @@ class ExtraPayments extends React.Component {
           amortization schedule' link above.
         </p>
 
-        <div className="flex extraPaymentsFlex">
-          <form className="flexReverse extraPaymentForm">
-            <label
-              className="extraPaymentForm__label"
-              htmlFor="extra-monthly-payment"
-            >
-              to your monthly payment
-            </label>
-            <input className="form__input" type="text" />
-          </form>
-        </div>
+        <form className="flex extraPaymentsFlex">
+          <Input
+            label="to your monthly payment"
+            labelClass="extraPaymentForm__label"
+            for="extra-monthly-payment"
+            divClass="flexReverse extraPaymentForm"
+            inputClass="form__input"
+          />
+        </form>
 
         <div className="flex extraPaymentsFlex">
-          <form className="flexReverse extraPaymentForm">
-            <label
-              className="extraPaymentForm__label"
-              htmlFor="extra-yearly-payment"
-            >
-              as an extra yearly payment occurring every:
-            </label>
-            <input className="form__input" type="text" />
+          <form>
+            <Input
+              label="as an extra yearly payment occurring every:"
+              labelClass="extraPaymentForm__label"
+              for="extra-yearly-payment"
+              divClass="flexReverse extraPaymentForm"
+              inputClass="form__input"
+            />
           </form>
 
           <div className="selectContainer">
@@ -93,14 +92,14 @@ class ExtraPayments extends React.Component {
         </div>
 
         <div className="flex extraPaymentsFlex">
-          <form className="flexReverse extraPaymentForm">
-            <label
-              className="extraPaymentForm__label"
-              htmlFor="one-time-payment"
-            >
-              as a one-time payment in:
-            </label>
-            <input className="form__input" type="text" />
+          <form>
+            <Input
+              label="as a one-time payment in:"
+              labelClass="extraPaymentForm__label"
+              for="one-time-payment"
+              divClass="flexReverse extraPaymentForm"
+              inputClass="form__input"
+            />
           </form>
 
           <div className="selectContainer">
