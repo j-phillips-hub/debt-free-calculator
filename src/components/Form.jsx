@@ -1,4 +1,5 @@
 import React from "react";
+import Input from "./Input";
 import "../styles/Form.css";
 import "../styles/Btn.css";
 
@@ -11,39 +12,36 @@ class Form extends React.Component {
     return (
       <section className="formSection">
         <form className="form">
-          <div className="flex inputContainer">
-            <label className="form__label" htmlFor="loan-amount">
-              Loan amount
-            </label>
-            <input className="form__input" type="text" />
-          </div>
-
-          <div className="flex inputContainer">
-            <label className="form__label" htmlFor="loan-term-years">
-              Loan term in years
-            </label>
-            <input className="form__input" type="text" />
-          </div>
-
+          <Input
+            label="Loan amount"
+            labelClass="form__label"
+            for="loan-amount"
+            divClass="flex inputContainer"
+            inputClass="form__input"
+          />
+          <Input
+            label="Loan term in years"
+            labelClass="form__label"
+            for="loan-term-years"
+            divClass="flex inputContainer"
+            inputClass="form__input"
+          />
           <div className="seperator">Or</div>
-
-          <div className="flex inputContainer">
-            <label className="form__label" htmlFor="loan-term-months">
-              Loan term in months
-            </label>
-            <input className="form__input" type="text" />
-          </div>
-
-          <div className="flex intrestRate">
-            <div className="flex inputContainer">
-              <label className="form__label" htmlFor="intrest-rate">
-                Interest rate per year
-              </label>
-              <input className="form__input" type="text" />
-            </div>
-
-            <button className="btn btn--small calculate">Calculate</button>
-          </div>
+          <Input
+            label="Loan term in months"
+            labelClass="form__label"
+            for="loan-term-months"
+            divClass="flex inputContainer"
+            inputClass="form__input"
+          />
+          <Input
+            label="Interest rate per year"
+            labelClass="form__label"
+            for="intrest-rate"
+            divClass="flex inputContainer"
+            inputClass="form__input"
+          />
+          <button className="btn btn--small calculate">Calculate</button>
         </form>
       </section>
     );
