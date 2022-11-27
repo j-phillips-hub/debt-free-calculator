@@ -48,6 +48,47 @@ class ExtraPayments extends React.Component {
                 <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
               </div>
             </div>
+
+            <div id="selectModal" class="selectModal">
+              <div id="optionContainer" class="optionContainer">
+                <p class="option" value="January">
+                  January
+                </p>
+                <p class="option" value="February">
+                  February
+                </p>
+                <p class="option" value="March">
+                  March
+                </p>
+                <p class="option" value="April">
+                  April
+                </p>
+                <p class="option" value="May">
+                  May
+                </p>
+                <p class="option" value="June">
+                  June
+                </p>
+                <p class="option" value="July">
+                  July
+                </p>
+                <p class="option" value="August">
+                  August
+                </p>
+                <p class="option" value="September">
+                  September
+                </p>
+                <p class="option" value="October">
+                  October
+                </p>
+                <p class="option" value="November">
+                  November
+                </p>
+                <p class="option" value="December">
+                  December
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -72,6 +113,47 @@ class ExtraPayments extends React.Component {
                 <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
               </div>
             </div>
+
+            <div id="selectModal" class="selectModal">
+              <div id="optionContainer" class="optionContainer">
+                <p class="option" value="January">
+                  January
+                </p>
+                <p class="option" value="February">
+                  February
+                </p>
+                <p class="option" value="March">
+                  March
+                </p>
+                <p class="option" value="April">
+                  April
+                </p>
+                <p class="option" value="May">
+                  May
+                </p>
+                <p class="option" value="June">
+                  June
+                </p>
+                <p class="option" value="July">
+                  July
+                </p>
+                <p class="option" value="August">
+                  August
+                </p>
+                <p class="option" value="September">
+                  September
+                </p>
+                <p class="option" value="October">
+                  October
+                </p>
+                <p class="option" value="November">
+                  November
+                </p>
+                <p class="option" value="December">
+                  December
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="selectContainer">
@@ -82,6 +164,38 @@ class ExtraPayments extends React.Component {
 
               <div>
                 <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div id="selectModal" class="selectModal">
+              <div id="optionContainer" class="optionContainer">
+                <p class="option" value="2022">
+                  2022
+                </p>
+                <p class="option" value="2023">
+                  2023
+                </p>
+                <p class="option" value="2024">
+                  2024
+                </p>
+                <p class="option" value="2025">
+                  2025
+                </p>
+                <p class="option" value="2026">
+                  2026
+                </p>
+                <p class="option" value="2027">
+                  2027
+                </p>
+                <p class="option" value="2028">
+                  2028
+                </p>
+                <p class="option" value="2029">
+                  2029
+                </p>
+                <p class="option" value="2030">
+                  2030
+                </p>
               </div>
             </div>
           </div>
