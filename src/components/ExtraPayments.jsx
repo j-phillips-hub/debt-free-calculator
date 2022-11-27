@@ -12,7 +12,7 @@ class ExtraPayments extends React.Component {
         <p className="extraPaymentsSection__text">
           Calculate the impact of extra payments using any combination of the
           inputs below. To see your new estimated payoff date, click 'Show
-          amortization scheduale' link above.
+          amortization schedule' link above.
         </p>
 
         <div className="flex extraPaymentsFlex">
