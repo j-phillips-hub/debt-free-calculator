@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./Input";
+import CustomSelectForm from "./CustomSelectForm";
 import "../styles/ExtraPayments.css";
 
 class ExtraPayments extends React.Component {
@@ -47,47 +48,7 @@ class ExtraPayments extends React.Component {
                 <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
               </div>
             </div>
-
-            <div id="selectModal" class="selectModal">
-              <div id="optionContainer" class="optionContainer">
-                <p class="option" value="January">
-                  January
-                </p>
-                <p class="option" value="February">
-                  February
-                </p>
-                <p class="option" value="March">
-                  March
-                </p>
-                <p class="option" value="April">
-                  April
-                </p>
-                <p class="option" value="May">
-                  May
-                </p>
-                <p class="option" value="June">
-                  June
-                </p>
-                <p class="option" value="July">
-                  July
-                </p>
-                <p class="option" value="August">
-                  August
-                </p>
-                <p class="option" value="September">
-                  September
-                </p>
-                <p class="option" value="October">
-                  October
-                </p>
-                <p class="option" value="November">
-                  November
-                </p>
-                <p class="option" value="December">
-                  December
-                </p>
-              </div>
-            </div>
+            <CustomSelectForm />
           </div>
         </div>
 
@@ -112,47 +73,7 @@ class ExtraPayments extends React.Component {
                 <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
               </div>
             </div>
-
-            <div id="selectModal" class="selectModal">
-              <div id="optionContainer" class="optionContainer">
-                <p class="option" value="January">
-                  January
-                </p>
-                <p class="option" value="February">
-                  February
-                </p>
-                <p class="option" value="March">
-                  March
-                </p>
-                <p class="option" value="April">
-                  April
-                </p>
-                <p class="option" value="May">
-                  May
-                </p>
-                <p class="option" value="June">
-                  June
-                </p>
-                <p class="option" value="July">
-                  July
-                </p>
-                <p class="option" value="August">
-                  August
-                </p>
-                <p class="option" value="September">
-                  September
-                </p>
-                <p class="option" value="October">
-                  October
-                </p>
-                <p class="option" value="November">
-                  November
-                </p>
-                <p class="option" value="December">
-                  December
-                </p>
-              </div>
-            </div>
+            <CustomSelectForm />
           </div>
 
           <div className="selectContainer">
