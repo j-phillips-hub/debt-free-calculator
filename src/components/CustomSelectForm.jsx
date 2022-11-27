@@ -20,18 +20,31 @@ class CustomSelectForm extends React.Component {
       "November",
       "December",
     ];
+
     return (
-      <div id="selectModal" class="selectModal">
-        <div id="optionContainer" class="optionContainer">
-          {months.map((month) => {
-            return (
-              <React.Fragment>
-                <p className="option" value={month}>
-                  {month}
-                </p>
-              </React.Fragment>
-            );
-          })}
+      <div className="selectContainer">
+        <div className="select">
+          <div>
+            <span id="selectText">{this.props.text}</span>
+          </div>
+
+          <div>
+            <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
+          </div>
+        </div>
+
+        <div id="selectModal" class="selectModal">
+          <div id={this.props.id} class="optionContainer">
+            {months.map((month) => {
+              return (
+                <React.Fragment>
+                  <p className="option" value={month}>
+                    {month}
+                  </p>
+                </React.Fragment>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

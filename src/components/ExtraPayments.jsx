@@ -37,19 +37,7 @@ class ExtraPayments extends React.Component {
               inputClass="form__input"
             />
           </form>
-
-          <div className="selectContainer">
-            <div className="select">
-              <div>
-                <span id="selectText">Month</span>
-              </div>
-
-              <div>
-                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
-              </div>
-            </div>
-            <CustomSelectForm />
-          </div>
+          <CustomSelectForm text="Month" />
         </div>
 
         <div className="flex extraPaymentsFlex">
@@ -62,19 +50,7 @@ class ExtraPayments extends React.Component {
               inputClass="form__input"
             />
           </form>
-
-          <div className="selectContainer">
-            <div className="select">
-              <div>
-                <span id="selectText">Month</span>
-              </div>
-
-              <div>
-                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
-              </div>
-            </div>
-            <CustomSelectForm />
-          </div>
+          <CustomSelectForm text="Month" id="month" />
 
           <div className="selectContainer">
             <div className="select">
