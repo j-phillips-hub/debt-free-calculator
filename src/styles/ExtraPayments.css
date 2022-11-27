@@ -41,3 +41,7 @@
   z-index: 100;
   cursor: context-menu;
 }
+
+.selectArrow {
+  color: var(--clr-medium-blue);
+}
