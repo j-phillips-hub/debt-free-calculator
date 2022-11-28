@@ -32,7 +32,6 @@
 
 .selectModal {
   transform: scaleY(0);
-  /* transform: scaleY(1); */
   background-color: var(--clr-white);
   border: 1px solid var(--clr-text);
   position: absolute;
@@ -44,4 +43,8 @@
 
 .selectArrow {
   color: var(--clr-medium-blue);
+}
+
+.modalVisible {
+  transform: scaleY(1);
 }

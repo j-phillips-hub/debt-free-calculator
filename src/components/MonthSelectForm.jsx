@@ -21,7 +21,9 @@ class MonthSelectForm extends React.Component {
 
   showModal = () => {
     const modals = document.getElementsByClassName("selectModal");
-    console.log(modals);
+    for (const i of modals) {
+      i.classList.toggle("modalVisible");
+    }
   };
 
   render() {
