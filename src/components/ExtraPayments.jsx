@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
-import CustomSelectForm from "./CustomSelectForm";
+import MonthSelectForm from "./MonthSelectForm";
+import YearSelectForm from "./YearSelectForm";
 import "../styles/ExtraPayments.css";
 
 class ExtraPayments extends React.Component {
@@ -37,7 +38,7 @@ class ExtraPayments extends React.Component {
               inputClass="form__input"
             />
           </form>
-          <CustomSelectForm text="Month" />
+          <MonthSelectForm />
         </div>
 
         <div className="flex extraPaymentsFlex">
@@ -50,51 +51,8 @@ class ExtraPayments extends React.Component {
               inputClass="form__input"
             />
           </form>
-          <CustomSelectForm text="Month" id="month" />
-
-          <div className="selectContainer">
-            <div className="select">
-              <div>
-                <span id="selectText">Year</span>
-              </div>
-
-              <div>
-                <i id="selectArrow" class="selectArrow fas fa-chevron-down"></i>
-              </div>
-            </div>
-
-            <div id="selectModal" class="selectModal">
-              <div id="optionContainer" class="optionContainer">
-                <p class="option" value="2022">
-                  2022
-                </p>
-                <p class="option" value="2023">
-                  2023
-                </p>
-                <p class="option" value="2024">
-                  2024
-                </p>
-                <p class="option" value="2025">
-                  2025
-                </p>
-                <p class="option" value="2026">
-                  2026
-                </p>
-                <p class="option" value="2027">
-                  2027
-                </p>
-                <p class="option" value="2028">
-                  2028
-                </p>
-                <p class="option" value="2029">
-                  2029
-                </p>
-                <p class="option" value="2030">
-                  2030
-                </p>
-              </div>
-            </div>
-          </div>
+          <MonthSelectForm />
+          <YearSelectForm />
         </div>
       </section>
     );
