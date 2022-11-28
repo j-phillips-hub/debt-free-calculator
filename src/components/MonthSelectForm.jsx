@@ -19,9 +19,14 @@ class MonthSelectForm extends React.Component {
     ];
   }
 
+  showModal = () => {
+    const modals = document.getElementsByClassName("selectModal");
+    console.log(modals);
+  };
+
   render() {
     return (
-      <div className="selectContainer">
+      <div onClick={this.showModal} className="selectContainer">
         <div className="select">
           <div>
             <span id="selectText">Month</span>
@@ -34,9 +39,9 @@ class MonthSelectForm extends React.Component {
 
         <div id="selectModal" className="selectModal">
           <div id="optionContainer" className="optionContainer"></div>
-          {this.months.map((month) => {
+          {this.months.map((month, index) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <p className="option" value={month}>
                   {month}
                 </p>

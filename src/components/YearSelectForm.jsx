@@ -31,9 +31,9 @@ class YearSelectForm extends React.Component {
 
         <div id="selectModal" className="selectModal">
           <div id="optionContainer" className="optionContainer"></div>
-          {this.years.map((year) => {
+          {this.years.map((year, index) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <p className="option" value={year}>
                   {year}
                 </p>
