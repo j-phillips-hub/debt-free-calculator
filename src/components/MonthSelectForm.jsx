@@ -3,6 +3,10 @@ import React from "react";
 class MonthSelectForm extends React.Component {
   constructor() {
     super();
+    this.state = {
+      visible: false,
+    };
+
     this.months = [
       "January",
       "February",
@@ -20,26 +24,29 @@ class MonthSelectForm extends React.Component {
   }
 
   showModal = () => {
-    const modals = document.getElementsByClassName("selectModal");
-    for (const i of modals) {
-      i.classList.toggle("modalVisible");
-    }
+    this.setState({ visible: true });
+    console.log(this.state.visible);
   };
 
   render() {
     return (
-      <div onClick={this.showModal} className="selectContainer">
+      <div>
         <div className="select">
           <div>
             <span id="selectText">Month</span>
           </div>
 
-          <div>
+          <div onClick={this.showModal}>
             <i id="selectArrow" className="selectArrow fas fa-chevron-down"></i>
           </div>
         </div>
 
-        <div id="selectModal" className="selectModal">
+        <div
+          id="selectModal"
+          className={
+            this.state.visible ? "modalVisible selectModal" : "selectModal"
+          }
+        >
           <div id="optionContainer" className="optionContainer"></div>
           {this.months.map((month, index) => {
             return (
