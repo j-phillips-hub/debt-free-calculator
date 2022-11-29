@@ -20,7 +20,7 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0 10rem;
+  min-height: 100vh;
 }
 
 section {
