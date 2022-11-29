@@ -45,13 +45,7 @@ class MonthSelectForm extends React.Component {
           </div>
 
           <div>
-            <i
-              className={
-                visible
-                  ? "selectArrow fas fa-chevron-down selectArrowRotate"
-                  : "selectArrow fas fa-chevron-down"
-              }
-            ></i>
+            <i className="selectArrow fas fa-chevron-down"></i>
           </div>
         </div>
 

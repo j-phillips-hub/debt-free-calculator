@@ -41,13 +41,7 @@ class YearSelectForm extends React.Component {
           </div>
 
           <div>
-            <i
-              className={
-                visible
-                  ? "selectArrowRotate selectArrow fas fa-chevron-down"
-                  : "selectArrow fas fa-chevron-down"
-              }
-            ></i>
+            <i className="selectArrow fas fa-chevron-down"></i>
           </div>
         </div>
 
