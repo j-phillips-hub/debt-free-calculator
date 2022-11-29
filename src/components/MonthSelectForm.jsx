@@ -31,13 +31,13 @@ class MonthSelectForm extends React.Component {
   render() {
     const { visible } = this.state;
     return (
-      <div>
+      <div onClick={this.toggleModal}>
         <div className="select">
           <div>
             <span>Month</span>
           </div>
 
-          <div onClick={this.toggleModal}>
+          <div>
             <i
               className={
                 visible

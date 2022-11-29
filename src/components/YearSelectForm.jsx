@@ -28,13 +28,13 @@ class YearSelectForm extends React.Component {
   render() {
     const { visible } = this.state;
     return (
-      <div>
+      <div onClick={this.toggleModal}>
         <div className="select">
           <div>
             <span>Year</span>
           </div>
 
-          <div onClick={this.toggleModal}>
+          <div>
             <i
               className={
                 visible
