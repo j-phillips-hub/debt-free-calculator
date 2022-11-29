@@ -35,6 +35,7 @@
   background-color: var(--clr-white);
   border: 1px solid var(--clr-text);
   position: absolute;
+  bottom: 4.813rem;
   width: 9.375rem;
   padding: 0.5rem 1.6rem;
   z-index: 100;
