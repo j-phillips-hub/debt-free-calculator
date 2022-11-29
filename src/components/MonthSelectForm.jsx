@@ -3,8 +3,10 @@ import React from "react";
 class MonthSelectForm extends React.Component {
   constructor() {
     super();
+
     this.state = {
       visible: false,
+      value: "Month",
     };
 
     this.months = [
@@ -28,13 +30,18 @@ class MonthSelectForm extends React.Component {
     this.setState({ visible: !currentState });
   };
 
+  handleSelectForm = (e) => {
+    const newValue = e.target.getAttribute("value");
+    this.setState({ value: newValue });
+  };
+
   render() {
-    const { visible } = this.state;
+    const { visible, value } = this.state;
     return (
       <div onClick={this.toggleModal}>
         <div className="select">
           <div>
-            <span>Month</span>
+            <span className="defaultValue">{value}</span>
           </div>
 
           <div>
@@ -52,7 +59,11 @@ class MonthSelectForm extends React.Component {
           {this.months.map((month, index) => {
             return (
               <React.Fragment key={index}>
-                <p className="select__option" value={month}>
+                <p
+                  onClick={this.handleSelectForm}
+                  className="select__option"
+                  value={month}
+                >
                   {month}
                 </p>
               </React.Fragment>
