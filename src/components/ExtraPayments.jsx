@@ -2,6 +2,7 @@ import React from "react";
 import Input from "./Input";
 import MonthSelectForm from "./MonthSelectForm";
 import YearSelectForm from "./YearSelectForm";
+import FontAwesomeIcon from "./FontAwesomeIcon";
 import "../styles/ExtraPayments.css";
 
 class ExtraPayments extends React.Component {
@@ -27,6 +28,7 @@ class ExtraPayments extends React.Component {
             inputClass="form__input"
           />
         </form>
+        <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
         <div className="flex extraPaymentsFlex">
           <form>
@@ -40,6 +42,7 @@ class ExtraPayments extends React.Component {
           </form>
           <MonthSelectForm />
         </div>
+        <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
         <div className="flex extraPaymentsFlex">
           <form>
@@ -54,6 +57,7 @@ class ExtraPayments extends React.Component {
           <MonthSelectForm />
           <YearSelectForm />
         </div>
+        <FontAwesomeIcon icon="fas fa-dollar-sign" />
       </section>
     );
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import FontAwesomeIcon from "./FontAwesomeIcon";
 
 class MonthSelectForm extends React.Component {
   constructor() {
@@ -43,9 +44,8 @@ class MonthSelectForm extends React.Component {
           <div>
             <span className="defaultValue">{defaultFormValue}</span>
           </div>
-
           <div>
-            <i className="selectArrow fas fa-chevron-down"></i>
+            <FontAwesomeIcon icon="selectArrow fas fa-chevron-down" />
           </div>
         </div>
 

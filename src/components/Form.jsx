@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./Input";
+import FontAwesomeIcon from "./FontAwesomeIcon";
 import "../styles/Form.css";
 import "../styles/Btn.css";
 
@@ -19,6 +20,7 @@ class Form extends React.Component {
             divClass="flex inputContainer"
             inputClass="form__input"
           />
+          <FontAwesomeIcon icon="fas fa-dollar-sign" />
           <Input
             label="Loan term in years"
             labelClass="form__label"
@@ -41,6 +43,7 @@ class Form extends React.Component {
             divClass="flex inputContainer"
             inputClass="form__input"
           />
+          <FontAwesomeIcon icon="fas fa-percent" />
           <button className="btn btn--small calculate">Calculate</button>
         </form>
       </section>
