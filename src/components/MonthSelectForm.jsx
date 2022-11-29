@@ -6,7 +6,7 @@ class MonthSelectForm extends React.Component {
 
     this.state = {
       visible: false,
-      value: "Month",
+      defaultFormValue: "Month",
     };
 
     this.months = [
@@ -32,16 +32,16 @@ class MonthSelectForm extends React.Component {
 
   handleSelectForm = (e) => {
     const newValue = e.target.getAttribute("value");
-    this.setState({ value: newValue });
+    this.setState({ defaultFormValue: newValue });
   };
 
   render() {
-    const { visible, value } = this.state;
+    const { visible, defaultFormValue } = this.state;
     return (
       <div onClick={this.toggleModal}>
         <div className="select">
           <div>
-            <span className="defaultValue">{value}</span>
+            <span className="defaultValue">{defaultFormValue}</span>
           </div>
 
           <div>
