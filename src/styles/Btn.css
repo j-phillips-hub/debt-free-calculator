@@ -9,7 +9,9 @@
   transition: all ease-in-out 0.2s;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
+  outline: none;
   background-color: hsl(232, 89%, 25%);
 }
 
