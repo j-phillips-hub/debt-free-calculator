@@ -45,6 +45,15 @@
   color: var(--clr-medium-blue);
 }
 
+.select__option {
+  padding: 2.5px 0;
+}
+
+.select__option:hover {
+  color: var(--clr-medium-blue);
+  text-decoration: var(--clr-medium-blue) underline;
+}
+
 .modalVisible {
   transform: scaleY(1);
 }

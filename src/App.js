@@ -6,7 +6,7 @@ import './styles/Responsive.css';
 
 function App() {
   return (
-    <main className="app">
+    <main id='app' className="app">
       <Form />
       <PaymentHistory />
       <ExtraPayments />
