@@ -6,12 +6,13 @@ class Input extends React.Component {
   }
 
   render() {
+    const { divClass, labelClass, label, htmlFor, inputClass } = this.props;
     return (
-      <div className={this.props.divClass}>
-        <label className={this.props.labelClass} htmlFor={this.props.for}>
-          {this.props.label}
+      <div className={divClass}>
+        <label className={labelClass} htmlFor={htmlFor}>
+          {label}
         </label>
-        <input className={this.props.inputClass} type="text" />
+        <input className={inputClass} type="text" />
       </div>
     );
   }
