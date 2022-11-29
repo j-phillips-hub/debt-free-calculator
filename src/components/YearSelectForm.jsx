@@ -5,6 +5,7 @@ class YearSelectForm extends React.Component {
     super();
     this.state = {
       visible: false,
+      defaultFormValue: "Year",
     };
 
     this.years = [
@@ -25,13 +26,18 @@ class YearSelectForm extends React.Component {
     this.setState({ visible: !currentState });
   };
 
+  handleSelectForm = (e) => {
+    const newValue = e.target.getAttribute("value");
+    this.setState({ defaultFormValue: newValue });
+  };
+
   render() {
-    const { visible } = this.state;
+    const { visible, defaultFormValue } = this.state;
     return (
       <div onClick={this.toggleModal}>
         <div className="select">
           <div>
-            <span>Year</span>
+            <span>{defaultFormValue}</span>
           </div>
 
           <div>
@@ -49,7 +55,11 @@ class YearSelectForm extends React.Component {
           {this.years.map((year, index) => {
             return (
               <React.Fragment key={index}>
-                <p className="select__option" value={year}>
+                <p
+                  onClick={this.handleSelectForm}
+                  className="select__option"
+                  value={year}
+                >
                   {year}
                 </p>
               </React.Fragment>
