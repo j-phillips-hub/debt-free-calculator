@@ -21,7 +21,7 @@ class YearSelectForm extends React.Component {
     ];
   }
 
-  toggleModal = () => {
+  handleModal = () => {
     const currentState = this.state.visible;
     this.setState({ visible: !currentState });
   };
@@ -34,7 +34,7 @@ class YearSelectForm extends React.Component {
   render() {
     const { visible, defaultFormValue } = this.state;
     return (
-      <div onClick={this.toggleModal}>
+      <div onClick={this.handleModal}>
         <div className="select">
           <div>
             <span>{defaultFormValue}</span>
