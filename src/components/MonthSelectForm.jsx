@@ -34,23 +34,25 @@ class MonthSelectForm extends React.Component {
       <div>
         <div className="select">
           <div>
-            <span id="selectText">Month</span>
+            <span>Month</span>
           </div>
 
           <div onClick={this.toggleModal}>
-            <i id="selectArrow" className="selectArrow fas fa-chevron-down"></i>
+            <i
+              className={
+                visible
+                  ? "selectArrow fas fa-chevron-down selectArrowRotate"
+                  : "selectArrow fas fa-chevron-down"
+              }
+            ></i>
           </div>
         </div>
 
-        <div
-          id="selectModal"
-          className={visible ? "modalVisible selectModal" : "selectModal"}
-        >
-          <div id="optionContainer" className="optionContainer"></div>
+        <div className={visible ? "modalVisible selectModal" : "selectModal"}>
           {this.months.map((month, index) => {
             return (
               <React.Fragment key={index}>
-                <p className="option" value={month}>
+                <p className="select__option" value={month}>
                   {month}
                 </p>
               </React.Fragment>

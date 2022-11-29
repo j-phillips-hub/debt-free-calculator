@@ -48,3 +48,7 @@
 .modalVisible {
   transform: scaleY(1);
 }
+
+.selectArrowRotate {
+  transform: rotate(180deg);
+}

@@ -28,26 +28,28 @@ class YearSelectForm extends React.Component {
   render() {
     const { visible } = this.state;
     return (
-      <div className="selectContainer">
+      <div>
         <div className="select">
           <div>
-            <span id="selectText">Year</span>
+            <span>Year</span>
           </div>
 
           <div onClick={this.toggleModal}>
-            <i id="selectArrow" className="selectArrow fas fa-chevron-down"></i>
+            <i
+              className={
+                visible
+                  ? "selectArrowRotate selectArrow fas fa-chevron-down"
+                  : "selectArrow fas fa-chevron-down"
+              }
+            ></i>
           </div>
         </div>
 
-        <div
-          id="selectModal"
-          className={visible ? "modalVisible selectModal" : "selectModal"}
-        >
-          <div id="optionContainer" className="optionContainer"></div>
+        <div className={visible ? "modalVisible selectModal" : "selectModal"}>
           {this.years.map((year, index) => {
             return (
               <React.Fragment key={index}>
-                <p className="option" value={year}>
+                <p className="select__option" value={year}>
                   {year}
                 </p>
               </React.Fragment>
