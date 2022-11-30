@@ -3,7 +3,16 @@ import React from "react";
 class Input extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      inputValue: "",
+    };
   }
+
+  handleVal = (e) => {
+    console.log(e.target.value);
+    // this.setState({ inputValue: e.value });
+  };
 
   render() {
     const { divClass, labelClass, label, htmlFor, inputClass } = this.props;
@@ -12,7 +21,7 @@ class Input extends React.Component {
         <label className={labelClass} htmlFor={htmlFor}>
           {label}
         </label>
-        <input className={inputClass} type="text" />
+        <input onKeyUp={this.handleVal} className={inputClass} type="text" />
       </div>
     );
   }
