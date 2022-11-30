@@ -5,13 +5,12 @@ class Input extends React.Component {
     super();
 
     this.state = {
-      inputValue: "",
+      loanValue: "",
     };
   }
 
   handleVal = (e) => {
     console.log(e.target.value);
-    // this.setState({ inputValue: e.value });
   };
 
   render() {
