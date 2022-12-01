@@ -25,31 +25,17 @@
 }
 
 .calculate {
-  margin-top: 0.3rem;
+  margin-top: 0.7rem;
 }
 
-.compareLoan {
+.makeAPayment {
   background-color: transparent;
   color: var(--clr-text);
   outline: 3px solid var(--clr-orangish-yellow);
   margin-bottom: 1.2rem;
 }
 
-.compareLoan:hover,
-.compareLoan:focus {
+.makeAPayment:hover,
+.makeAPayment:focus {
   background-color: var(--clr-orangish-yellow);
-}
-
-.btnAnchor {
-  background-color: transparent;
-  color: var(--clr-medium-blue);
-  font-weight: 500;
-  text-transform: initial;
-}
-
-.btnAnchor:hover,
-.btnAnchor:focus {
-  background-color: transparent;
-  outline: none;
-  text-decoration: underline;
 }

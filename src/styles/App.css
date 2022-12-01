@@ -47,25 +47,18 @@ hr {
 .app {
   color: var(--clr-text);
   display: grid;
-  grid-template-areas:
-    "f h"
-    "e e";
+  grid-template-areas: "m h";
   grid-template-columns: 1fr 1fr;
   font-family: "Outfit", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   border: 1px solid var(--clr-text);
+  width: 800px;
   max-width: 800px;
-  max-height: 800px;
 }
 
 .flex {
   display: flex;
-}
-
-.flexReverse {
-  display: flex;
-  flex-direction: row-reverse;
 }
 
 .inputContainer {
