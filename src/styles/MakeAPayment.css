@@ -20,12 +20,5 @@
 }
 
 .makePayment {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   margin-top: 5.8125rem;
-}
-
-.fa-dollar-sign--makeAPayment {
-  transform: translate(-10.7rem, -2.7rem);
 }

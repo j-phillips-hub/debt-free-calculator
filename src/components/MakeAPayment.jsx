@@ -41,7 +41,7 @@ class MakeAPayment extends React.Component {
             labelClass="form__label"
             inputClass="form__input"
           />
-          <FontAwesomeIcon icon="fas fa-dollar-sign fa-dollar-sign--makeAPayment" />
+          <FontAwesomeIcon icon="fas fa-dollar-sign" />
           <button className="btn btn--large makeAPayment">
             Make a payment
           </button>

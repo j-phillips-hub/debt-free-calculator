@@ -26,7 +26,7 @@ class PaymentInfo extends React.Component {
             <span>Total Interest</span>
             <span>$80.89</span>
           </p>
-          <p>10 payments to be debt free!</p>
+          <p>10 payments to pay off loan</p>
         </div>
 
         <div className="paymentHistory">
