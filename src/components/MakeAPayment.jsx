@@ -3,11 +3,21 @@ import Input from "./Input";
 import FontAwesomeIcon from "./FontAwesomeIcon";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
+import CalculateBtn from "./CalculateBtn";
 
 class MakeAPayment extends React.Component {
   constructor() {
     super();
   }
+
+  calculate = (e) => {
+    e.preventDefault();
+    // const loanAmount = this.state.loanAmount;
+    // const interestRate = this.state.interestRate;
+    // const total = loanAmount - interestRate;
+    // console.log(total);
+    alert("Passed");
+  };
 
   render() {
     return (
@@ -25,12 +35,12 @@ class MakeAPayment extends React.Component {
           <Input
             label="Interest rate"
             labelClass="form__label"
-            htmlFor="intrest-rate"
+            htmlFor="interest-rate"
             divClass="flex inputContainer"
             inputClass="form__input"
           />
           <FontAwesomeIcon icon="fas fa-percent" />
-          <button className="btn btn--small calculate">Calculate</button>
+          <CalculateBtn calculateValue={this.calculate} />
         </form>
 
         <div className="makePayment">

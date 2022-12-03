@@ -5,12 +5,23 @@ class Input extends React.Component {
     super();
 
     this.state = {
-      loanValue: "",
+      loanAmount: "",
+      interestRate: "",
+      val: "",
     };
   }
 
   handleVal = (e) => {
-    console.log(e.target.value);
+    if (this.props.htmlFor.match("loan-amount")) {
+      this.setState({ loanAmount: e.target.value });
+    } else if (this.props.htmlFor.match("interest-rate")) {
+      this.setState({ interestRate: e.target.value });
+    }
+  };
+
+  calculate = () => {
+    const val = this.loanAmount - this.interestRate;
+    this.setState({ val: val });
   };
 
   render() {
