@@ -27,9 +27,9 @@ class MakeAPayment extends React.Component {
   };
 
   calculateMinimunPayment = (e) => {
-    const totalInterest =
-      (this.state.interestRate / 12) * this.state.loanAmount;
-    const basePayment = this.state.loanAmount * 0.01;
+    const { loanAmount, interestRate } = this.state;
+    const totalInterest = (interestRate / 12) * loanAmount;
+    const basePayment = loanAmount * 0.01;
     const minimunPayment = basePayment + totalInterest;
     this.setState({ minimunPayment: minimunPayment.toFixed(2) });
     e.preventDefault();
