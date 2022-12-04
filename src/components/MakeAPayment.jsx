@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./Input";
+import PaymentInfo from "./PaymentInfo";
 import FontAwesomeIcon from "./FontAwesomeIcon";
 import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
@@ -36,40 +37,44 @@ class MakeAPayment extends React.Component {
   };
 
   render() {
+    const { minimumPayment } = this.state;
     return (
-      <section className="makeAPaymentSection">
-        <form className="form">
-          <Input
-            label="Loan amount"
-            htmlFor="loan-amount"
-            data="loan-amount"
-            handleInput={this.getInputValue}
-          />
-          <FontAwesomeIcon icon="fas fa-dollar-sign" />
+      <React.Fragment>
+        <section className="makeAPaymentSection">
+          <form className="form">
+            <Input
+              label="Loan amount"
+              htmlFor="loan-amount"
+              data="loan-amount"
+              handleInput={this.getInputValue}
+            />
+            <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
-          <Input
-            label="Interest rate"
-            htmlFor="interest-rate"
-            handleInput={this.getInputValue}
-            data="interest-rate"
-          />
-          <FontAwesomeIcon icon="fas fa-percent" />
-          <CalculateBtn calculateValue={this.calculateMinimumPayment} />
-        </form>
+            <Input
+              label="Interest rate"
+              htmlFor="interest-rate"
+              handleInput={this.getInputValue}
+              data="interest-rate"
+            />
+            <FontAwesomeIcon icon="fas fa-percent" />
+            <CalculateBtn calculateValue={this.calculateMinimumPayment} />
+          </form>
 
-        <div className="makePayment">
-          <Input
-            label="Enter your payment amount"
-            htmlFor="enter payment"
-            data="total"
-            handleInput={this.getInputValue}
-          />
-          <FontAwesomeIcon icon="fas fa-dollar-sign" />
-          <button className="btn btn--large makeAPayment">
-            Make a payment
-          </button>
-        </div>
-      </section>
+          <div className="makePayment">
+            <Input
+              label="Enter your payment amount"
+              htmlFor="enter payment"
+              data="total"
+              handleInput={this.getInputValue}
+            />
+            <FontAwesomeIcon icon="fas fa-dollar-sign" />
+            <button className="btn btn--large makeAPayment">
+              Make a payment
+            </button>
+          </div>
+        </section>
+        <PaymentInfo minimumPayment={minimumPayment} />
+      </React.Fragment>
     );
   }
 }

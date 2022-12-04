@@ -7,7 +7,7 @@ function App() {
   return (
     <main id='app' className="app">
       <MakeAPayment />
-      <PaymentInfo />
+      {/* <PaymentInfo /> */}
     </main>
   );
 }
