@@ -11,21 +11,27 @@ class MakeAPayment extends React.Component {
     this.state = {
       loanAmount: "",
       interestRate: "",
-      total: "",
+      minimunPayment: "",
     };
   }
 
   handleVal = (e) => {
-    console.log(e.target.value);
+    const data = e.target.getAttribute("data");
+    const value = e.target.value;
+
+    if (data.match("loan-amount")) {
+      this.setState({ loanAmount: value });
+    } else if (data.match("interest-rate")) {
+      this.setState({ interestRate: value / 100 });
+    }
   };
 
-  calculate = (e) => {
+  calculateMinimunPayment = (e) => {
+    const interest = (this.state.interestRate / 12) * this.state.loanAmount;
+    const basePayment = this.state.loanAmount * 0.01;
+    const minimunPayment = basePayment + interest;
+    this.setState({ minimunPayment: minimunPayment });
     e.preventDefault();
-    // const loanAmount = this.state.loanAmount;
-    // const interestRate = this.state.interestRate;
-    // const total = loanAmount - interestRate;
-    // console.log(total);
-    alert("Passed");
   };
 
   render() {
@@ -35,6 +41,7 @@ class MakeAPayment extends React.Component {
           <Input
             label="Loan amount"
             htmlFor="loan-amount"
+            data="loan-amount"
             handleInput={this.handleVal}
           />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
@@ -43,13 +50,19 @@ class MakeAPayment extends React.Component {
             label="Interest rate"
             htmlFor="interest-rate"
             handleInput={this.handleVal}
+            data="interest-rate"
           />
           <FontAwesomeIcon icon="fas fa-percent" />
-          <CalculateBtn calculateValue={this.calculate} />
+          <CalculateBtn calculateValue={this.calculateMinimunPayment} />
         </form>
 
         <div className="makePayment">
-          <Input label="Enter your payment amount" htmlFor="enter payment" />
+          <Input
+            label="Enter your payment amount"
+            htmlFor="enter payment"
+            data="total"
+            handleInput={this.handleVal}
+          />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
           <button className="btn btn--large makeAPayment">
             Make a payment

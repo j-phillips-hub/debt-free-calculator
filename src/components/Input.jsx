@@ -7,7 +7,12 @@ function Input(props) {
       <label className="form__label" htmlFor={htmlFor}>
         {label}
       </label>
-      <input onKeyUp={props.handleInput} className="form__input" type="text" />
+      <input
+        onKeyUp={props.handleInput}
+        className="form__input"
+        type="text"
+        data={props.data}
+      />
     </div>
   );
 }
