@@ -6,8 +6,8 @@ import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
 class MakeAPayment extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loanAmount: "",
       interestRate: "",
@@ -30,7 +30,7 @@ class MakeAPayment extends React.Component {
     const interest = (this.state.interestRate / 12) * this.state.loanAmount;
     const basePayment = this.state.loanAmount * 0.01;
     const minimunPayment = basePayment + interest;
-    this.setState({ minimunPayment: minimunPayment });
+    this.setState({ minimunPayment: minimunPayment.toFixed(2) });
     e.preventDefault();
   };
 

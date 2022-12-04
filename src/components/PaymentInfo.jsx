@@ -13,7 +13,7 @@ class PaymentInfo extends React.Component {
         <div className="paymentInfo">
           <p className="paymentInfo__text">Minimum Payment</p>
           <span className="paymentInfo__dollar">$</span>
-          <span className="paymentInfo__num">93.22</span>
+          <span className="paymentInfo__num">90</span>
         </div>
 
         <div className="totalPaid">
