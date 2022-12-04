@@ -11,7 +11,7 @@ class MakeAPayment extends React.Component {
     this.state = {
       loanAmount: "",
       interestRate: "",
-      minimunPayment: "",
+      minimumPayment: "",
     };
   }
 
@@ -26,12 +26,12 @@ class MakeAPayment extends React.Component {
     }
   };
 
-  calculateMinimunPayment = (e) => {
+  calculateMinimumPayment = (e) => {
     const { loanAmount, interestRate } = this.state;
     const totalInterest = (interestRate / 12) * loanAmount;
     const basePayment = loanAmount * 0.01;
-    const minimunPayment = basePayment + totalInterest;
-    this.setState({ minimunPayment: minimunPayment.toFixed(2) });
+    const minimumPayment = basePayment + totalInterest;
+    this.setState({ minimumPayment: minimumPayment.toFixed(2) });
     e.preventDefault();
   };
 
@@ -54,7 +54,7 @@ class MakeAPayment extends React.Component {
             data="interest-rate"
           />
           <FontAwesomeIcon icon="fas fa-percent" />
-          <CalculateBtn calculateValue={this.calculateMinimunPayment} />
+          <CalculateBtn calculateValue={this.calculateMinimumPayment} />
         </form>
 
         <div className="makePayment">
