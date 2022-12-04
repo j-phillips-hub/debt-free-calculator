@@ -1,14 +1,23 @@
 import React from "react";
 import Input from "./Input";
 import FontAwesomeIcon from "./FontAwesomeIcon";
+import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
-import CalculateBtn from "./CalculateBtn";
 
 class MakeAPayment extends React.Component {
   constructor() {
     super();
+    this.state = {
+      loanAmount: "",
+      interestRate: "",
+      total: "",
+    };
   }
+
+  handleVal = (e) => {
+    console.log(e.target.value);
+  };
 
   calculate = (e) => {
     e.preventDefault();
@@ -25,32 +34,22 @@ class MakeAPayment extends React.Component {
         <form className="form">
           <Input
             label="Loan amount"
-            labelClass="form__label"
             htmlFor="loan-amount"
-            divClass="flex inputContainer"
-            inputClass="form__input"
+            handleInput={this.handleVal}
           />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
           <Input
             label="Interest rate"
-            labelClass="form__label"
             htmlFor="interest-rate"
-            divClass="flex inputContainer"
-            inputClass="form__input"
+            handleInput={this.handleVal}
           />
           <FontAwesomeIcon icon="fas fa-percent" />
           <CalculateBtn calculateValue={this.calculate} />
         </form>
 
         <div className="makePayment">
-          <Input
-            label="Enter your payment amount"
-            htmlFor="enter payment"
-            divClass="flex inputContainer"
-            labelClass="form__label"
-            inputClass="form__input"
-          />
+          <Input label="Enter your payment amount" htmlFor="enter payment" />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
           <button className="btn btn--large makeAPayment">
             Make a payment
