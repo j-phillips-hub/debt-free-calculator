@@ -3,12 +3,13 @@ import "../styles/PaymentInfo.css";
 import "../styles/Btn.css";
 
 function PaymentInfo(props) {
+  const { minimumPayment } = props;
   return (
     <section className="paymentInfoSection">
       <div className="paymentInfo">
         <p className="paymentInfo__text">Minimum Payment</p>
         <span className="paymentInfo__dollar">$</span>
-        <span className="paymentInfo__num">{props.minimumPayment}</span>
+        <span className="paymentInfo__num">{minimumPayment}</span>
       </div>
 
       <div className="totalPaid">
