@@ -17,19 +17,20 @@ class MakeAPayment extends React.Component {
 
   handleVal = (e) => {
     const data = e.target.getAttribute("data");
-    const value = e.target.value;
+    const inputValue = e.target.value;
 
     if (data.match("loan-amount")) {
-      this.setState({ loanAmount: value });
+      this.setState({ loanAmount: inputValue });
     } else if (data.match("interest-rate")) {
-      this.setState({ interestRate: value / 100 });
+      this.setState({ interestRate: inputValue / 100 });
     }
   };
 
   calculateMinimunPayment = (e) => {
-    const interest = (this.state.interestRate / 12) * this.state.loanAmount;
+    const totalInterest =
+      (this.state.interestRate / 12) * this.state.loanAmount;
     const basePayment = this.state.loanAmount * 0.01;
-    const minimunPayment = basePayment + interest;
+    const minimunPayment = basePayment + totalInterest;
     this.setState({ minimunPayment: minimunPayment.toFixed(2) });
     e.preventDefault();
   };
