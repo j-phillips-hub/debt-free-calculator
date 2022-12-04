@@ -7,12 +7,12 @@ import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
 class MakeAPayment extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       loanAmount: "",
       interestRate: "",
-      minimumPayment: "",
+      minimumPayment: 0,
     };
   }
 
