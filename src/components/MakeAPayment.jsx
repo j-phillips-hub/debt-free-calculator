@@ -15,7 +15,7 @@ class MakeAPayment extends React.Component {
     };
   }
 
-  handleVal = (e) => {
+  getInputValue = (e) => {
     const data = e.target.getAttribute("data");
     const inputValue = e.target.value;
 
@@ -43,14 +43,14 @@ class MakeAPayment extends React.Component {
             label="Loan amount"
             htmlFor="loan-amount"
             data="loan-amount"
-            handleInput={this.handleVal}
+            handleInput={this.getInputValue}
           />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
           <Input
             label="Interest rate"
             htmlFor="interest-rate"
-            handleInput={this.handleVal}
+            handleInput={this.getInputValue}
             data="interest-rate"
           />
           <FontAwesomeIcon icon="fas fa-percent" />
@@ -62,7 +62,7 @@ class MakeAPayment extends React.Component {
             label="Enter your payment amount"
             htmlFor="enter payment"
             data="total"
-            handleInput={this.handleVal}
+            handleInput={this.getInputValue}
           />
           <FontAwesomeIcon icon="fas fa-dollar-sign" />
           <button className="btn btn--large makeAPayment">
