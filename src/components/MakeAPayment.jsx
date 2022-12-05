@@ -24,6 +24,7 @@ class MakeAPayment extends React.Component {
     const data = e.target.getAttribute("data");
     const inputValue = e.target.value;
 
+    // Clean Up
     if (data.match("loan-amount")) {
       this.setState({ loanAmount: inputValue });
     } else if (data.match("interest-rate")) {
@@ -35,13 +36,22 @@ class MakeAPayment extends React.Component {
 
   calculateMinimumPayment = (e) => {
     const { loanAmount, interestRate, loanTerm } = this.state;
-    const interest = loanAmount * ((interestRate * 0.02) / loanTerm);
+    const interest = loanAmount * (interestRate / 100 / loanTerm);
     const minimumPayment = loanAmount / loanTerm + interest;
     const paymentPrincipal = minimumPayment - interest;
 
-    this.setState({ minimumPayment: minimumPayment.toFixed(2) });
-    this.setState({ paymentPrincipal: paymentPrincipal.toFixed(2) });
-    this.setState({ paymentInterest: interest.toFixed(2) });
+    this.setState({
+      minimumPayment: minimumPayment.toFixed(2),
+      paymentPrincipal: paymentPrincipal.toFixed(2),
+      paymentInterest: interest.toFixed(2),
+      paymentsLeft: loanTerm,
+    });
+    e.preventDefault();
+  };
+
+  MakeAPayment = (e) => {
+    let { loanTerm } = this.state;
+    this.setState({ loanTerm: (loanTerm -= 1) });
     this.setState({ paymentsLeft: loanTerm });
     e.preventDefault();
   };
@@ -85,7 +95,10 @@ class MakeAPayment extends React.Component {
               handleInput={this.getInputValue}
             />
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
-            <button className="btn btn--large makeAPayment">
+            <button
+              onClick={this.MakeAPayment}
+              className="btn btn--large makeAPayment"
+            >
               Make a payment
             </button>
           </div>
