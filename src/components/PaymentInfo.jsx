@@ -3,7 +3,8 @@ import "../styles/PaymentInfo.css";
 import "../styles/Btn.css";
 
 function PaymentInfo(props) {
-  const { minimumPayment } = props;
+  const { minimumPayment, paymentPrincipal, paymentInterest, paymentsLeft } =
+    props;
   return (
     <section className="paymentInfoSection">
       <div className="paymentInfo">
@@ -15,14 +16,14 @@ function PaymentInfo(props) {
       <div className="totalPaid">
         <p className="flex totalPaid">
           <span>Total Principal</span>
-          <span>$5,000</span>
+          <span>${paymentPrincipal}</span>
         </p>
         <hr />
         <p className="flex totalPaid">
           <span>Total Interest</span>
-          <span>$80.89</span>
+          <span>${paymentInterest}</span>
         </p>
-        <p>10 payments to pay off loan</p>
+        <p>{paymentsLeft} payments left to pay off loan</p>
       </div>
 
       <div className="paymentHistory">

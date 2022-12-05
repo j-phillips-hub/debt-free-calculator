@@ -10,7 +10,7 @@ function Input(props) {
       <input
         onKeyUp={props.handleInput}
         className="form__input"
-        type="text"
+        type="number"
         data={props.data}
       />
     </div>

@@ -12,7 +12,11 @@ class MakeAPayment extends React.Component {
     this.state = {
       loanAmount: "",
       interestRate: "",
+      loanTerm: 0,
       minimumPayment: 0,
+      paymentPrincipal: 0,
+      paymentInterest: 0,
+      paymentsLeft: 0,
     };
   }
 
@@ -23,21 +27,28 @@ class MakeAPayment extends React.Component {
     if (data.match("loan-amount")) {
       this.setState({ loanAmount: inputValue });
     } else if (data.match("interest-rate")) {
-      this.setState({ interestRate: inputValue / 100 });
+      this.setState({ interestRate: inputValue });
+    } else if (data.match("loan-term")) {
+      this.setState({ loanTerm: inputValue });
     }
   };
 
   calculateMinimumPayment = (e) => {
-    const { loanAmount, interestRate } = this.state;
-    const totalInterest = (interestRate / 12) * loanAmount;
-    const basePayment = loanAmount * 0.01;
-    const minimumPayment = basePayment + totalInterest;
+    const { loanAmount, interestRate, loanTerm } = this.state;
+    const interest = loanAmount * ((interestRate * 0.02) / loanTerm);
+    const minimumPayment = loanAmount / loanTerm + interest;
+    const paymentPrincipal = minimumPayment - interest;
+
     this.setState({ minimumPayment: minimumPayment.toFixed(2) });
+    this.setState({ paymentPrincipal: paymentPrincipal.toFixed(2) });
+    this.setState({ paymentInterest: interest.toFixed(2) });
+    this.setState({ paymentsLeft: loanTerm });
     e.preventDefault();
   };
 
   render() {
-    const { minimumPayment } = this.state;
+    const { minimumPayment, paymentPrincipal, paymentInterest, paymentsLeft } =
+      this.state;
     return (
       <React.Fragment>
         <section className="makeAPaymentSection">
@@ -57,6 +68,12 @@ class MakeAPayment extends React.Component {
               data="interest-rate"
             />
             <FontAwesomeIcon icon="fas fa-percent" />
+            <Input
+              label="Loan term in months"
+              htmlFor="loan-term"
+              data="loan-term"
+              handleInput={this.getInputValue}
+            />
             <CalculateBtn calculateValue={this.calculateMinimumPayment} />
           </form>
 
@@ -73,7 +90,13 @@ class MakeAPayment extends React.Component {
             </button>
           </div>
         </section>
-        <PaymentInfo minimumPayment={minimumPayment} />
+
+        <PaymentInfo
+          minimumPayment={minimumPayment}
+          paymentPrincipal={paymentPrincipal}
+          paymentInterest={paymentInterest}
+          paymentsLeft={paymentsLeft}
+        />
       </React.Fragment>
     );
   }
