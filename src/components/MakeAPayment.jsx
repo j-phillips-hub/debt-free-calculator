@@ -6,6 +6,8 @@ import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
+const paymentAmounts = [];
+
 class MakeAPayment extends React.Component {
   constructor() {
     super();
@@ -17,6 +19,8 @@ class MakeAPayment extends React.Component {
       paymentPrincipal: 0,
       paymentInterest: 0,
       paymentsLeft: 0,
+      paymentsMade: 0,
+      paymentAmount: 0,
     };
   }
 
@@ -31,6 +35,8 @@ class MakeAPayment extends React.Component {
       this.setState({ interestRate: inputValue });
     } else if (data.match("loan-term")) {
       this.setState({ loanTerm: inputValue });
+    } else if (data.match("payment-amount")) {
+      this.setState({ paymentAmount: inputValue });
     }
   };
 
@@ -50,15 +56,29 @@ class MakeAPayment extends React.Component {
   };
 
   MakeAPayment = (e) => {
-    let { loanTerm } = this.state;
-    this.setState({ loanTerm: (loanTerm -= 1) });
-    this.setState({ paymentsLeft: loanTerm });
+    let { loanTerm, paymentsLeft, paymentsMade, paymentAmount } = this.state;
+
+    if (paymentsLeft > 0 && paymentAmount > 0) {
+      this.setState({ loanTerm: (loanTerm -= 1) });
+      this.setState({ paymentsLeft: loanTerm });
+    }
+
+    if (paymentAmount > 0) {
+      paymentAmounts.push(paymentAmount);
+      console.log(paymentAmounts);
+    }
+
     e.preventDefault();
   };
 
   render() {
-    const { minimumPayment, paymentPrincipal, paymentInterest, paymentsLeft } =
-      this.state;
+    const {
+      minimumPayment,
+      paymentPrincipal,
+      paymentInterest,
+      paymentsLeft,
+      paymentsMade,
+    } = this.state;
     return (
       <React.Fragment>
         <section className="makeAPaymentSection">
@@ -91,7 +111,7 @@ class MakeAPayment extends React.Component {
             <Input
               label="Enter your payment amount"
               htmlFor="enter payment"
-              data="total"
+              data="payment-amount"
               handleInput={this.getInputValue}
             />
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
@@ -109,6 +129,7 @@ class MakeAPayment extends React.Component {
           paymentPrincipal={paymentPrincipal}
           paymentInterest={paymentInterest}
           paymentsLeft={paymentsLeft}
+          paymentsMade={paymentsMade}
         />
       </React.Fragment>
     );
