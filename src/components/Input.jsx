@@ -11,7 +11,8 @@ function Input(props) {
         onKeyUp={props.handleInput}
         className="form__input"
         type="number"
-        data={props.data}
+        name={props.name}
+        required
       />
     </div>
   );

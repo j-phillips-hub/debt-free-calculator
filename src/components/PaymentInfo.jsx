@@ -9,6 +9,9 @@ function PaymentInfo(props) {
     paymentInterest,
     paymentsLeft,
     paymentsMade,
+    balanceRemaining,
+    totalPrinciplePaid,
+    totalInterestPaid,
   } = props;
   return (
     <section className="paymentInfoSection">
@@ -28,7 +31,7 @@ function PaymentInfo(props) {
           <span>Total Interest</span>
           <span>${paymentInterest}</span>
         </p>
-        <p>{paymentsLeft} payments left to pay off loan</p>
+        <p>{paymentsLeft} minimum payments left to pay off loan</p>
       </div>
 
       <div className="paymentHistory">
@@ -41,18 +44,8 @@ function PaymentInfo(props) {
           </p>
           <hr />
           <p className="flex totalPaid">
-            <span>Total Principle Paid</span>
-            <span>$5000</span>
-          </p>
-          <hr />
-          <p className="flex totalPaid">
-            <span>Total Interest Paid</span>
-            <span>$7</span>
-          </p>
-          <hr />
-          <p className="flex totalPaid">
             <span>Balance Remaining</span>
-            <span>$2000</span>
+            <span>${balanceRemaining}</span>
           </p>
         </div>
       </div>

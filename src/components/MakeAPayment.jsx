@@ -14,60 +14,46 @@ class MakeAPayment extends React.Component {
     this.state = {
       loanAmount: "",
       interestRate: "",
-      loanTerm: 0,
+      paymentAmount: "",
       minimumPayment: 0,
       paymentPrincipal: 0,
       paymentInterest: 0,
       paymentsLeft: 0,
       paymentsMade: 0,
-      paymentAmount: 0,
     };
   }
 
-  getInputValue = (e) => {
-    const data = e.target.getAttribute("data");
-    const inputValue = e.target.value;
-
-    // Clean Up
-    if (data.match("loan-amount")) {
-      this.setState({ loanAmount: inputValue });
-    } else if (data.match("interest-rate")) {
-      this.setState({ interestRate: inputValue });
-    } else if (data.match("loan-term")) {
-      this.setState({ loanTerm: inputValue });
-    } else if (data.match("payment-amount")) {
-      this.setState({ paymentAmount: inputValue });
-    }
+  handleInput = (e) => {
+    const { name, value } = e.target;
+    this.setState((prev) => {
+      if (name === "interestRate") {
+        return { ...prev, [name]: value / 100 };
+      }
+      return { ...prev, [name]: value };
+    });
   };
 
   calculateMinimumPayment = (e) => {
-    const { loanAmount, interestRate, loanTerm } = this.state;
-    const interest = loanAmount * (interestRate / 100 / loanTerm);
-    const minimumPayment = loanAmount / loanTerm + interest;
-    const paymentPrincipal = minimumPayment - interest;
-
+    const { loanAmount, interestRate } = this.state;
+    const interest = (interestRate / 12) * loanAmount;
+    const paymentPrincipal = loanAmount * 0.01;
+    const minimumPayment = paymentPrincipal + interest;
     this.setState({
-      minimumPayment: minimumPayment.toFixed(2),
-      paymentPrincipal: paymentPrincipal.toFixed(2),
       paymentInterest: interest.toFixed(2),
-      paymentsLeft: loanTerm,
+      paymentPrincipal: paymentPrincipal.toFixed(2),
+      minimumPayment: minimumPayment.toFixed(2),
+      balanceRemaining: loanAmount,
     });
     e.preventDefault();
   };
 
   MakeAPayment = (e) => {
-    let { loanTerm, paymentsLeft, paymentsMade, paymentAmount } = this.state;
-
-    if (paymentsLeft > 0 && paymentAmount > 0) {
-      this.setState({ loanTerm: (loanTerm -= 1) });
-      this.setState({ paymentsLeft: loanTerm });
-    }
-
-    if (paymentAmount > 0) {
-      paymentAmounts.push(paymentAmount);
-      console.log(paymentAmounts);
-    }
-
+    const { loanAmount, paymentAmount, interestRate } = this.state;
+    const interest = (interestRate / 12) * loanAmount;
+    this.setState({
+      loanAmount: loanAmount - (paymentAmount - interest),
+    });
+    this.calculateMinimumPayment(e);
     e.preventDefault();
   };
 
@@ -78,6 +64,7 @@ class MakeAPayment extends React.Component {
       paymentInterest,
       paymentsLeft,
       paymentsMade,
+      loanAmount,
     } = this.state;
     return (
       <React.Fragment>
@@ -86,24 +73,24 @@ class MakeAPayment extends React.Component {
             <Input
               label="Loan amount"
               htmlFor="loan-amount"
-              data="loan-amount"
-              handleInput={this.getInputValue}
+              name="loanAmount"
+              handleInput={this.handleInput}
             />
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
 
             <Input
               label="Interest rate"
               htmlFor="interest-rate"
-              handleInput={this.getInputValue}
-              data="interest-rate"
+              handleInput={this.handleInput}
+              name="interestRate"
             />
             <FontAwesomeIcon icon="fas fa-percent" />
-            <Input
+            {/* <Input
               label="Loan term in months"
               htmlFor="loan-term"
-              data="loan-term"
-              handleInput={this.getInputValue}
-            />
+              name="loanTerm"
+              handleInput={this.handleInput}
+            /> */}
             <CalculateBtn calculateValue={this.calculateMinimumPayment} />
           </form>
 
@@ -111,8 +98,8 @@ class MakeAPayment extends React.Component {
             <Input
               label="Enter your payment amount"
               htmlFor="enter payment"
-              data="payment-amount"
-              handleInput={this.getInputValue}
+              name="paymentAmount"
+              handleInput={this.handleInput}
             />
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
             <button
@@ -130,6 +117,9 @@ class MakeAPayment extends React.Component {
           paymentInterest={paymentInterest}
           paymentsLeft={paymentsLeft}
           paymentsMade={paymentsMade}
+          balanceRemaining={loanAmount}
+          // totalPrinciplePaid={totalPrinciplePaid}
+          // totalInterestPaid={totalInterestPaid}
         />
       </React.Fragment>
     );
