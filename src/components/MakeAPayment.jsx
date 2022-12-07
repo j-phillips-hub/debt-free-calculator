@@ -85,12 +85,6 @@ class MakeAPayment extends React.Component {
               name="interestRate"
             />
             <FontAwesomeIcon icon="fas fa-percent" />
-            {/* <Input
-              label="Loan term in months"
-              htmlFor="loan-term"
-              name="loanTerm"
-              handleInput={this.handleInput}
-            /> */}
             <CalculateBtn calculateValue={this.calculateMinimumPayment} />
           </form>
 
@@ -118,8 +112,6 @@ class MakeAPayment extends React.Component {
           paymentsLeft={paymentsLeft}
           paymentsMade={paymentsMade}
           balanceRemaining={loanAmount}
-          // totalPrinciplePaid={totalPrinciplePaid}
-          // totalInterestPaid={totalInterestPaid}
         />
       </React.Fragment>
     );
