@@ -47,18 +47,20 @@ class MakeAPayment extends React.Component {
   };
 
   MakeAPayment = (e) => {
-    const newBalance =
-      this.state.loanAmount -
-      (this.state.paymentAmount - this.state.paymentInterest);
-    const interest = (this.state.interestRate / 12) * newBalance;
-    const paymentPrincipal = newBalance * 0.01;
-    const minimumPayment = paymentPrincipal + interest;
+    const { loanAmount, paymentAmount, paymentInterest, paymentsMade } =
+      this.state;
+    let totalPaymentsMade = paymentsMade;
+    const newBalance = loanAmount - (paymentAmount - paymentInterest);
+    const newInterest = (this.state.interestRate / 12) * newBalance;
+    const newPaymentPrincipal = newBalance * 0.01;
+    const newMinimumPayment = newPaymentPrincipal + newInterest;
+
     this.setState({
       loanAmount: newBalance,
-      paymentInterest: interest.toFixed(2),
-      paymentPrincipal: paymentPrincipal.toFixed(2),
-      minimumPayment: minimumPayment.toFixed(2),
-      paymentsMade: (this.state.paymentsMade += 1),
+      paymentInterest: newInterest.toFixed(2),
+      paymentPrincipal: newPaymentPrincipal.toFixed(2),
+      minimumPayment: newMinimumPayment.toFixed(2),
+      paymentsMade: (totalPaymentsMade += 1),
     });
     e.preventDefault();
   };
