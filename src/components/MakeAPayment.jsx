@@ -23,6 +23,19 @@ class MakeAPayment extends React.Component {
     };
   }
 
+  resetApp = () => {
+    this.setState({
+      loanAmount: "",
+      interestRate: "",
+      paymentAmount: "",
+      minimumPayment: 0,
+      paymentPrincipal: 0,
+      paymentInterest: 0,
+      paymentsLeft: 0,
+      paymentsMade: 0,
+    });
+  };
+
   resetPaymentAmount = () => {
     const inputs = document.getElementsByTagName("input");
 
@@ -76,7 +89,9 @@ class MakeAPayment extends React.Component {
     const newMinimumPayment = newPaymentPrincipal + newInterest;
 
     if (paymentAmount < minimumPayment) {
-      alert("Payment needs to be equal to minimum payment");
+      alert(
+        "Your payment needs to be equal to or more than the minimum payment"
+      );
       this.resetPaymentAmount();
     } else {
       this.setState({
@@ -87,8 +102,10 @@ class MakeAPayment extends React.Component {
         paymentsMade: (totalPaymentsMade += 1),
         paymentsLeft: Math.ceil(newBalance / newPaymentPrincipal),
       });
+
+      this.resetPaymentAmount();
     }
-    this.resetPaymentAmount();
+
     e.preventDefault();
   };
 
