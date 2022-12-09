@@ -23,6 +23,17 @@ class MakeAPayment extends React.Component {
     };
   }
 
+  resetPaymentAmount = () => {
+    const inputs = document.getElementsByTagName("input");
+
+    for (const input of inputs) {
+      if (input.name === "paymentAmount") {
+        this.setState({ paymentAmount: "" });
+        input.value = "";
+      }
+    }
+  };
+
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState((prev) => {
@@ -42,6 +53,7 @@ class MakeAPayment extends React.Component {
       paymentInterest: interest.toFixed(2),
       paymentPrincipal: paymentPrincipal.toFixed(2),
       minimumPayment: minimumPayment.toFixed(2),
+      paymentsLeft: loanAmount / paymentPrincipal,
     });
     e.preventDefault();
   };
@@ -56,12 +68,14 @@ class MakeAPayment extends React.Component {
     const newMinimumPayment = newPaymentPrincipal + newInterest;
 
     this.setState({
-      loanAmount: newBalance,
+      loanAmount: newBalance.toFixed(2),
       paymentInterest: newInterest.toFixed(2),
       paymentPrincipal: newPaymentPrincipal.toFixed(2),
       minimumPayment: newMinimumPayment.toFixed(2),
       paymentsMade: (totalPaymentsMade += 1),
+      paymentsLeft: newBalance / newPaymentPrincipal,
     });
+    this.resetPaymentAmount();
     e.preventDefault();
   };
 
