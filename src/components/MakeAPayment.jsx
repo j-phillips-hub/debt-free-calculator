@@ -12,9 +12,9 @@ class MakeAPayment extends React.Component {
   constructor() {
     super();
     this.state = {
-      loanAmount: "",
-      interestRate: "",
-      paymentAmount: "",
+      loanAmount: 0,
+      interestRate: 0,
+      paymentAmount: 0,
       minimumPayment: 0,
       paymentPrincipal: 0,
       paymentInterest: 0,
@@ -25,9 +25,9 @@ class MakeAPayment extends React.Component {
 
   resetApp = () => {
     this.setState({
-      loanAmount: "",
-      interestRate: "",
-      paymentAmount: "",
+      loanAmount: 0,
+      interestRate: 0,
+      paymentAmount: 0,
       minimumPayment: 0,
       paymentPrincipal: 0,
       paymentInterest: 0,
@@ -53,7 +53,7 @@ class MakeAPayment extends React.Component {
       if (name === "interestRate") {
         return { ...prev, [name]: value / 100 };
       }
-      return { ...prev, [name]: value };
+      return { ...prev, [name]: Number(value) };
     });
   };
 
@@ -69,6 +69,12 @@ class MakeAPayment extends React.Component {
       minimumPayment: minimumPayment.toFixed(2),
       paymentsLeft: loanAmount / paymentPrincipal,
     });
+
+    console.log(
+      typeof this.state.loanAmount,
+      typeof this.state.minimumPayment,
+      typeof this.state.interestRate
+    );
     e.preventDefault();
   };
 
@@ -88,12 +94,7 @@ class MakeAPayment extends React.Component {
     const newPaymentPrincipal = newBalance * 0.01;
     const newMinimumPayment = newPaymentPrincipal + newInterest;
 
-    if (paymentAmount < minimumPayment) {
-      alert(
-        "Your payment needs to be equal to or more than the minimum payment"
-      );
-      this.resetPaymentAmount();
-    } else {
+    if (minimumPayment <= paymentAmount) {
       this.setState({
         loanAmount: newBalance.toFixed(2),
         paymentInterest: newInterest.toFixed(2),
@@ -102,10 +103,12 @@ class MakeAPayment extends React.Component {
         paymentsMade: (totalPaymentsMade += 1),
         paymentsLeft: Math.ceil(newBalance / newPaymentPrincipal),
       });
-
+    } else {
+      alert(
+        "Your payment needs to be equal to or more than the minimum payment"
+      );
       this.resetPaymentAmount();
     }
-
     e.preventDefault();
   };
 
