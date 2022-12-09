@@ -49,6 +49,7 @@ class MakeAPayment extends React.Component {
     const interest = (interestRate / 12) * loanAmount;
     const paymentPrincipal = loanAmount * 0.01;
     const minimumPayment = paymentPrincipal + interest;
+
     this.setState({
       paymentInterest: interest.toFixed(2),
       paymentPrincipal: paymentPrincipal.toFixed(2),
@@ -59,22 +60,34 @@ class MakeAPayment extends React.Component {
   };
 
   MakeAPayment = (e) => {
-    const { loanAmount, paymentAmount, paymentInterest, paymentsMade } =
-      this.state;
+    const {
+      loanAmount,
+      paymentAmount,
+      minimumPayment,
+      paymentInterest,
+      paymentsMade,
+      interestRate,
+    } = this.state;
+
     let totalPaymentsMade = paymentsMade;
     const newBalance = loanAmount - (paymentAmount - paymentInterest);
-    const newInterest = (this.state.interestRate / 12) * newBalance;
+    const newInterest = (interestRate / 12) * newBalance;
     const newPaymentPrincipal = newBalance * 0.01;
     const newMinimumPayment = newPaymentPrincipal + newInterest;
 
-    this.setState({
-      loanAmount: newBalance.toFixed(2),
-      paymentInterest: newInterest.toFixed(2),
-      paymentPrincipal: newPaymentPrincipal.toFixed(2),
-      minimumPayment: newMinimumPayment.toFixed(2),
-      paymentsMade: (totalPaymentsMade += 1),
-      paymentsLeft: newBalance / newPaymentPrincipal,
-    });
+    if (paymentAmount < minimumPayment) {
+      alert("Payment needs to be equal to minimum payment");
+      this.resetPaymentAmount();
+    } else {
+      this.setState({
+        loanAmount: newBalance.toFixed(2),
+        paymentInterest: newInterest.toFixed(2),
+        paymentPrincipal: newPaymentPrincipal.toFixed(2),
+        minimumPayment: newMinimumPayment.toFixed(2),
+        paymentsMade: (totalPaymentsMade += 1),
+        paymentsLeft: Math.ceil(newBalance / newPaymentPrincipal),
+      });
+    }
     this.resetPaymentAmount();
     e.preventDefault();
   };
@@ -88,6 +101,7 @@ class MakeAPayment extends React.Component {
       paymentsMade,
       loanAmount,
     } = this.state;
+
     return (
       <React.Fragment>
         <section className="makeAPaymentSection">
