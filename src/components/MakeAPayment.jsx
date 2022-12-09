@@ -69,12 +69,6 @@ class MakeAPayment extends React.Component {
       minimumPayment: minimumPayment.toFixed(2),
       paymentsLeft: loanAmount / paymentPrincipal,
     });
-
-    console.log(
-      typeof this.state.loanAmount,
-      typeof this.state.minimumPayment,
-      typeof this.state.interestRate
-    );
     e.preventDefault();
   };
 
