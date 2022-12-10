@@ -91,7 +91,7 @@ class MakeAPayment extends React.Component {
       this.resetPaymentAmount();
     }
 
-    if (minimumPayment === 0) {
+    if (minimumPayment <= 0) {
       this.setState({
         loanAmount: 0,
         paymentsLeft: 0,
