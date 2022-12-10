@@ -6,7 +6,7 @@ import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
-const paymentAmounts = [];
+// const paymentAmounts = [];
 
 class MakeAPayment extends React.Component {
   constructor() {
@@ -89,6 +89,13 @@ class MakeAPayment extends React.Component {
         "Your payment needs to be equal to or more than the minimum payment"
       );
       this.resetPaymentAmount();
+    }
+
+    if (minimumPayment === 0) {
+      this.setState({
+        loanAmount: 0,
+        paymentsLeft: 0,
+      });
     }
     e.preventDefault();
   };
