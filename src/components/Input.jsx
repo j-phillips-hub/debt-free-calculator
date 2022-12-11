@@ -12,6 +12,7 @@ function Input(props) {
         className="form__input"
         type="number"
         name={props.name}
+        autoComplete="off"
         required
       />
     </div>
