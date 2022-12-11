@@ -6,7 +6,7 @@ import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
-// const paymentAmounts = [];
+const paymentAmounts = [];
 
 class MakeAPayment extends React.Component {
   constructor() {
@@ -21,8 +21,6 @@ class MakeAPayment extends React.Component {
       paymentsLeft: 0,
       paymentsMade: 0,
     };
-
-    this.setInterest = (this.state.interestRate / 12) * this.state.loanAmount;
   }
 
   resetPaymentAmount = () => {
@@ -30,7 +28,7 @@ class MakeAPayment extends React.Component {
 
     for (const input of inputs) {
       if (input.name === "paymentAmount") {
-        this.setState({ paymentAmount: "" });
+        this.setState({ paymentAmount: 0 });
         input.value = "";
       }
     }
@@ -47,12 +45,13 @@ class MakeAPayment extends React.Component {
   };
 
   calculateMinimumPayment = (e) => {
-    const { loanAmount } = this.state;
+    const { loanAmount, interestRate } = this.state;
+    const interest = (interestRate / 12) * loanAmount;
     const paymentPrincipal = loanAmount * 0.01;
-    const minimumPayment = paymentPrincipal + this.setInterest;
+    const minimumPayment = paymentPrincipal + interest;
 
     this.setState({
-      paymentInterest: this.setInterest.toFixed(2),
+      paymentInterest: interest.toFixed(2),
       paymentPrincipal: paymentPrincipal.toFixed(2),
       minimumPayment: minimumPayment.toFixed(2),
       paymentsLeft: loanAmount / paymentPrincipal,
@@ -90,13 +89,6 @@ class MakeAPayment extends React.Component {
         "Your payment needs to be equal to or more than the minimum payment"
       );
       this.resetPaymentAmount();
-    }
-
-    if (minimumPayment <= 0) {
-      this.setState({
-        loanAmount: 0,
-        paymentsLeft: 0,
-      });
     }
     e.preventDefault();
   };
