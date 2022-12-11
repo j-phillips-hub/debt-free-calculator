@@ -10,8 +10,6 @@ function PaymentInfo(props) {
     paymentsLeft,
     paymentsMade,
     balanceRemaining,
-    totalPrinciplePaid,
-    totalInterestPaid,
   } = props;
   return (
     <section className="paymentInfoSection">
