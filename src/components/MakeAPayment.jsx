@@ -22,7 +22,7 @@ class MakeAPayment extends React.Component {
       paymentsMade: 0,
     };
 
-    this.interest = (this.state.interestRate / 12) * this.state.loanAmount;
+    this.setInterest = (this.state.interestRate / 12) * this.state.loanAmount;
   }
 
   resetPaymentAmount = () => {
@@ -47,13 +47,12 @@ class MakeAPayment extends React.Component {
   };
 
   calculateMinimumPayment = (e) => {
-    const { loanAmount, interestRate } = this.state;
-    // const interest = (interestRate / 12) * loanAmount;
+    const { loanAmount } = this.state;
     const paymentPrincipal = loanAmount * 0.01;
-    const minimumPayment = paymentPrincipal + this.interest;
+    const minimumPayment = paymentPrincipal + this.setInterest;
 
     this.setState({
-      paymentInterest: this.interest.toFixed(2),
+      paymentInterest: this.setInterest.toFixed(2),
       paymentPrincipal: paymentPrincipal.toFixed(2),
       minimumPayment: minimumPayment.toFixed(2),
       paymentsLeft: loanAmount / paymentPrincipal,
