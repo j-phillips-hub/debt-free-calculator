@@ -9,7 +9,7 @@ function PaymentsList(props) {
       <ul className="paymentsList">
         {items.map((item, index) => (
           <li className="paymentsList__item" key={item.id}>
-            Payment # {index + 1}.{" "}
+            Payment {index + 1}.{" "}
             <span className="paymentsList__item--green">
               ${item.paymentAmount}
             </span>

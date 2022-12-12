@@ -11,4 +11,28 @@
     grid-template-columns: 1fr;
     width: initial;
   }
+
+  .fa-percent {
+    transform: translate(14.25rem, -4.4rem);
+  }
+
+  .paymentsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .paymentsList__item {
+    text-align: center;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .paymentsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fa-percent {
+    transform: translate(0.6rem, -4.4rem);
+  }
 }
