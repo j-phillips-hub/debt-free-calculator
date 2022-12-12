@@ -6,8 +6,6 @@ import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
-const paymentAmounts = [];
-
 class MakeAPayment extends React.Component {
   constructor() {
     super();
@@ -20,6 +18,7 @@ class MakeAPayment extends React.Component {
       paymentInterest: 0,
       paymentsLeft: 0,
       paymentsMade: 0,
+      payments: [],
     };
   }
 
@@ -44,7 +43,7 @@ class MakeAPayment extends React.Component {
     });
   };
 
-  handleCalculatePayment = (e) => {
+  handleCalculate = (e) => {
     const { loanAmount, interestRate } = this.state;
     const interest = (interestRate / 12) * loanAmount;
     const paymentPrincipal = loanAmount * 0.01;
@@ -59,7 +58,7 @@ class MakeAPayment extends React.Component {
     e.preventDefault();
   };
 
-  handlePayment = (e) => {
+  handleMakePayment = (e) => {
     const {
       loanAmount,
       paymentAmount,
@@ -68,6 +67,17 @@ class MakeAPayment extends React.Component {
       paymentsMade,
       interestRate,
     } = this.state;
+
+    const newPayment = {
+      paymentAmount: this.state.paymentAmount,
+      id: Date.now(),
+    };
+
+    this.setState((prevState) => ({
+      payments: [...prevState.payments, newPayment],
+    }));
+
+    console.log(this.state.payments);
 
     let totalPaymentsMade = paymentsMade;
     const newBalance = loanAmount - (paymentAmount - paymentInterest);
@@ -122,7 +132,7 @@ class MakeAPayment extends React.Component {
               name="interestRate"
             />
             <FontAwesomeIcon icon="fas fa-percent" />
-            <CalculateBtn calculateValue={this.handleCalculatePayment} />
+            <CalculateBtn calculateValue={this.handleCalculate} />
           </form>
 
           <div className="makePayment">
@@ -134,7 +144,7 @@ class MakeAPayment extends React.Component {
             />
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
             <button
-              onClick={this.handlePayment}
+              onClick={this.handleMakePayment}
               className="btn btn--large makeAPayment"
             >
               Make a payment
