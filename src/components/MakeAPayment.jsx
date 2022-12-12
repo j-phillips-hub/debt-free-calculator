@@ -95,13 +95,13 @@ class MakeAPayment extends React.Component {
         paymentsMade: (totalPaymentsMade += 1),
         paymentsLeft: Math.max(0, Math.ceil(newBalance / newPaymentPrincipal)),
       });
+      this.handlePaymentList();
     } else {
       alert(
         "Your payment needs to be equal to or more than the minimum payment"
       );
       this.resetPaymentAmount();
     }
-    this.handlePaymentList();
     e.preventDefault();
   };
 
