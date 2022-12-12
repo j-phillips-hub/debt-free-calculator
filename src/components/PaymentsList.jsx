@@ -6,9 +6,14 @@ function PaymentsList(props) {
   return (
     <section className="paymentsListSection">
       <h2>Payments</h2>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>{item.paymentAmount}</li>
+      <ul className="paymentsList">
+        {items.map((item, index) => (
+          <li className="paymentsList__item" key={item.id}>
+            Payment # {index + 1}.{" "}
+            <span className="paymentsList__item--green">
+              ${item.paymentAmount}
+            </span>
+          </li>
         ))}
       </ul>
     </section>

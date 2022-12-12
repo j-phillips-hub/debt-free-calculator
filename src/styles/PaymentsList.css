@@ -1,5 +1,21 @@
 .paymentsListSection {
-  border-top: 1px solid var(--clr-text);
   grid-area: p;
+  border-top: 1px solid var(--clr-text);
   padding: 1rem 2rem 1rem;
+}
+
+.paymentsList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.paymentsList__item {
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.paymentsList__item--green {
+  color: var(--clr-money-green);
+  font-size: 0.9rem;
+  margin-left: 0.25rem;
 }
