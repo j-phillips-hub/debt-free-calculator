@@ -59,6 +59,17 @@ class MakeAPayment extends React.Component {
     e.preventDefault();
   };
 
+  handlePaymentList = () => {
+    const newPayment = {
+      paymentAmount: this.state.paymentAmount,
+      id: Date.now(),
+    };
+
+    this.setState((prevState) => ({
+      payments: [...prevState.payments, newPayment],
+    }));
+  };
+
   handleMakePayment = (e) => {
     const {
       loanAmount,
@@ -68,17 +79,6 @@ class MakeAPayment extends React.Component {
       paymentsMade,
       interestRate,
     } = this.state;
-
-    const newPayment = {
-      paymentAmount: this.state.paymentAmount,
-      id: Date.now(),
-    };
-
-    this.setState((prevState) => ({
-      payments: [...prevState.payments, newPayment],
-    }));
-
-    console.log(this.state.payments);
 
     let totalPaymentsMade = paymentsMade;
     const newBalance = loanAmount - (paymentAmount - paymentInterest);
@@ -101,6 +101,7 @@ class MakeAPayment extends React.Component {
       );
       this.resetPaymentAmount();
     }
+    this.handlePaymentList();
     e.preventDefault();
   };
 
