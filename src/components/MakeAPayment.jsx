@@ -59,53 +59,39 @@ class MakeAPayment extends React.Component {
     e.preventDefault();
   };
 
-  handlePayment = () => {
-    this.setState((state) => ({
-      loanAmount: Math.max(
-        0,
-        state.loanAmount - (state.paymentAmount - state.paymentInterest)
-      ).toFixed(2),
-      paymentInterest: Math.max(
-        0,
-        (state.interestRate / 12) * state.loanAmount
-      ).toFixed(2),
-      paymentPrincipal: Math.max(0, state.loanAmount * 0.01).toFixed(2),
-    }));
+  handlePayment = (e) => {
+    const {
+      loanAmount,
+      paymentAmount,
+      minimumPayment,
+      paymentInterest,
+      paymentsMade,
+      interestRate,
+    } = this.state;
+
+    let totalPaymentsMade = paymentsMade;
+    const newBalance = loanAmount - (paymentAmount - paymentInterest);
+    const newInterest = (interestRate / 12) * newBalance;
+    const newPaymentPrincipal = newBalance * 0.01;
+    const newMinimumPayment = newPaymentPrincipal + newInterest;
+
+    if (minimumPayment <= paymentAmount) {
+      this.setState({
+        loanAmount: Math.max(0, newBalance.toFixed(2)),
+        paymentInterest: Math.max(0, newInterest.toFixed(2)),
+        paymentPrincipal: Math.max(0, newPaymentPrincipal.toFixed(2)),
+        minimumPayment: Math.max(0, newMinimumPayment.toFixed(2)),
+        paymentsMade: (totalPaymentsMade += 1),
+        paymentsLeft: Math.max(0, Math.ceil(newBalance / newPaymentPrincipal)),
+      });
+    } else {
+      alert(
+        "Your payment needs to be equal to or more than the minimum payment"
+      );
+      this.resetPaymentAmount();
+    }
+    e.preventDefault();
   };
-
-  // handlePayment = (e) => {
-  //   const {
-  //     loanAmount,
-  //     paymentAmount,
-  //     minimumPayment,
-  //     paymentInterest,
-  //     paymentsMade,
-  //     interestRate,
-  //   } = this.state;
-
-  //   let totalPaymentsMade = paymentsMade;
-  //   const newBalance = loanAmount - (paymentAmount - paymentInterest);
-  //   const newInterest = (interestRate / 12) * newBalance;
-  //   const newPaymentPrincipal = newBalance * 0.01;
-  //   const newMinimumPayment = newPaymentPrincipal + newInterest;
-
-  //   if (minimumPayment <= paymentAmount) {
-  //     this.setState({
-  //       loanAmount: Math.max(0, newBalance.toFixed(2)),
-  //       paymentInterest: Math.max(0, newInterest.toFixed(2)),
-  //       paymentPrincipal: Math.max(0, newPaymentPrincipal.toFixed(2)),
-  //       minimumPayment: Math.max(0, newMinimumPayment.toFixed(2)),
-  //       paymentsMade: (totalPaymentsMade += 1),
-  //       paymentsLeft: Math.max(0, Math.ceil(newBalance / newPaymentPrincipal)),
-  //     });
-  //   } else {
-  //     alert(
-  //       "Your payment needs to be equal to or more than the minimum payment"
-  //     );
-  //     this.resetPaymentAmount();
-  //   }
-  //   e.preventDefault();
-  // };
 
   render() {
     const {
