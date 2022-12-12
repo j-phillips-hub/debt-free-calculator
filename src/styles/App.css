@@ -74,7 +74,6 @@ input:focus {
 }
 
 hr {
-  background-color: var(--clr-text);
   border: 1px solid var(--clr-text);
   opacity: 0.2;
 }
