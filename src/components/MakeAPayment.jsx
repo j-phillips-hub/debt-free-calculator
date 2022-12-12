@@ -36,6 +36,7 @@ class MakeAPayment extends React.Component {
 
   handleInput = (e) => {
     const { name, value } = e.target;
+
     this.setState((prev) => {
       if (name === "interestRate") {
         return { ...prev, [name]: value / 100 };

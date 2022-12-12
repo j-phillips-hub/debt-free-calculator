@@ -1,8 +1,14 @@
 @media screen and (max-width: 850px) {
+  body {
+    padding: 2rem 2rem;
+  }
+
   .app {
     grid-template-areas:
       "m"
-      "h";
+      "h"
+      "p";
     grid-template-columns: 1fr;
+    width: initial;
   }
 }
