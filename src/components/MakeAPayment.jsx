@@ -87,7 +87,7 @@ class MakeAPayment extends React.Component {
     const newPaymentPrincipal = newBalance * 0.01;
     const newMinimumPayment = newPaymentPrincipal + newInterest;
 
-    if (minimumPayment <= paymentAmount) {
+    if (minimumPayment <= paymentAmount && loanAmount > 0) {
       this.setState({
         loanAmount: Math.max(0, newBalance.toFixed(2)),
         paymentInterest: Math.max(0, newInterest.toFixed(2)),
@@ -99,7 +99,7 @@ class MakeAPayment extends React.Component {
       this.handlePaymentList();
     } else {
       alert(
-        "Your payment needs to be equal to or more than the minimum payment"
+        "Your payment needs to be equal to or more than the minimum payment and balance remaining needs to be more than 0"
       );
       this.resetPaymentAmount();
     }
