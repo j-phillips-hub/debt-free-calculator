@@ -161,7 +161,7 @@ class MakeAPayment extends React.Component {
           paymentsMade={paymentsMade}
           balanceRemaining={loanAmount}
         />
-        <PaymentsList />
+        <PaymentsList items={this.state.payments} />
       </React.Fragment>
     );
   }
