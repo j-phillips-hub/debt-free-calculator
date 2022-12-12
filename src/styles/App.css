@@ -58,7 +58,9 @@ hr {
 .app {
   color: var(--clr-text);
   display: grid;
-  grid-template-areas: "m h";
+  grid-template-areas:
+    "m h"
+    "p p";
   grid-template-columns: 1fr 1fr;
   font-family: "Outfit", sans-serif;
   font-size: 0.8rem;

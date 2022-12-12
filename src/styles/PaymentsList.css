@@ -1,0 +1,4 @@
+.paymentsListSection {
+  border-top: 1px solid var(--clr-text);
+  grid-area: p;
+}

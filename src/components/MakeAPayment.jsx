@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import PaymentInfo from "./PaymentInfo";
+import PaymentsList from "./PaymentsList";
 import FontAwesomeIcon from "./FontAwesomeIcon";
 import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
@@ -160,6 +161,7 @@ class MakeAPayment extends React.Component {
           paymentsMade={paymentsMade}
           balanceRemaining={loanAmount}
         />
+        <PaymentsList />
       </React.Fragment>
     );
   }
