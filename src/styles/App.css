@@ -55,6 +55,10 @@ hr {
   opacity: 0.2;
 }
 
+ul {
+  list-style: none;
+}
+
 .app {
   color: var(--clr-text);
   display: grid;
