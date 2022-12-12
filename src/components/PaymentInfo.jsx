@@ -14,7 +14,7 @@ function PaymentInfo(props) {
   return (
     <section className="paymentInfoSection">
       <div className="paymentInfo">
-        <p className="paymentInfo__text">Minimum Payment</p>
+        <h2 className="paymentInfo__header">Minimum Payment</h2>
         <span className="paymentInfo__dollar">$</span>
         <span className="paymentInfo__num">{minimumPayment}</span>
       </div>

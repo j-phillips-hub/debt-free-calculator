@@ -7,6 +7,10 @@
   margin-bottom: 2.5rem;
 }
 
+.paymentInfo__header {
+  margin-bottom: initial;
+}
+
 .paymentInfo__dollar {
   font-size: 1.7rem;
   display: inline-block;
