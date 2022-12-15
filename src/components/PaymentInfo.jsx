@@ -30,7 +30,7 @@ function PaymentInfo(props) {
       {
         className: "flex totalPaid",
         title: "Number of Paymnets Made",
-        number: `$ ${paymentsMade}`,
+        number: `${paymentsMade}`,
       },
       {
         className: "flex totalPaid",

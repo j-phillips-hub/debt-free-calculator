@@ -186,7 +186,7 @@ class MakeAPayment extends React.Component {
               className={
                 loanAmount > 0
                   ? "btn btn--large makeAPayment"
-                  : "btn btn--large disabled"
+                  : "btn btn--large makeAPayment disabled"
               }
             >
               Make a payment
