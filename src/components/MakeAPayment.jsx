@@ -114,6 +114,25 @@ class MakeAPayment extends React.Component {
   };
 
   render() {
+    const inputs = [
+      {
+        id: "loanAmount",
+        label: "Loan amount",
+        htmlFor: "loan-amount",
+        name: "loanAmount",
+        icon: "fa-dollar-sign",
+        iconId: "dollarSign",
+      },
+      {
+        id: "interestRate",
+        label: "Interest rate",
+        htmlFor: "interest-rate",
+        name: "interestRate",
+        icon: "fa-percent",
+        iconId: "percentSign",
+      },
+    ];
+
     const {
       minimumPayment,
       paymentPrincipal,
@@ -129,21 +148,21 @@ class MakeAPayment extends React.Component {
       <React.Fragment>
         <section className="makeAPaymentSection">
           <form className="form">
-            <Input
-              label="Loan amount"
-              htmlFor="loan-amount"
-              name="loanAmount"
-              handleInput={this.handleInput}
-            />
-            <FontAwesomeIcon icon="fas fa-dollar-sign" />
+            {inputs.map((input, index) => {
+              const { label, htmlFor, name, icon } = input;
+              return (
+                <React.Fragment key={index}>
+                  <Input
+                    label={label}
+                    htmlFor={htmlFor}
+                    name={name}
+                    handleInput={this.handleInput}
+                  />
+                  <FontAwesomeIcon icon={`fas ${icon}`} />
+                </React.Fragment>
+              );
+            })}
 
-            <Input
-              label="Interest rate"
-              htmlFor="interest-rate"
-              handleInput={this.handleInput}
-              name="interestRate"
-            />
-            <FontAwesomeIcon icon="fas fa-percent" />
             <button
               className={
                 balanceRemaining === 0

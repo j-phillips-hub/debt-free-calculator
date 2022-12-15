@@ -1,17 +1,17 @@
 import React from "react";
 
 function Input(props) {
-  const { label, htmlFor } = props;
+  const { label, htmlFor, name, handleInput } = props;
   return (
     <div className="flex inputContainer">
       <label className="form__label" htmlFor={htmlFor}>
         {label}
       </label>
       <input
-        onKeyUp={props.handleInput}
+        onKeyUp={handleInput}
+        name={name}
         className="form__input"
         type="number"
-        name={props.name}
         autoComplete="off"
         required
       />
