@@ -2,7 +2,6 @@ import React from "react";
 import Input from "./Input";
 import PaymentInfo from "./PaymentInfo";
 import PaymentsList from "./PaymentsList";
-import FontAwesomeIcon from "./FontAwesomeIcon";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 import "../styles/DebtFreeMsg.css";
@@ -121,6 +120,7 @@ class MakeAPayment extends React.Component {
         htmlFor: "loan-amount",
         name: "loanAmount",
         icon: "fa-dollar-sign",
+        placeholder: "Enter Dollar Amount",
       },
       {
         id: "interestRate",
@@ -128,6 +128,7 @@ class MakeAPayment extends React.Component {
         htmlFor: "interest-rate",
         name: "interestRate",
         icon: "fa-percent",
+        placeholder: "Enter Percentage",
       },
     ];
 
@@ -147,7 +148,7 @@ class MakeAPayment extends React.Component {
         <section className="makeAPaymentSection">
           <form className="form">
             {inputs.map((input, index) => {
-              const { label, htmlFor, name, icon } = input;
+              const { label, htmlFor, name, placeholder } = input;
               return (
                 <React.Fragment key={index}>
                   <Input
@@ -155,7 +156,7 @@ class MakeAPayment extends React.Component {
                     htmlFor={htmlFor}
                     name={name}
                     handleInput={this.handleInput}
-                    icon={`fas ${icon}`}
+                    placeholder={placeholder}
                   />
                 </React.Fragment>
               );
@@ -175,12 +176,12 @@ class MakeAPayment extends React.Component {
 
           <div className="makePayment">
             <Input
+              placeholder="Enter Dollar Amount"
               label="Enter your payment amount"
               htmlFor="enter payment"
               name="paymentAmount"
               handleInput={this.handleInput}
             />
-            <FontAwesomeIcon icon="fas fa-dollar-sign" />
             <button
               onClick={this.handleMakePayment}
               className={
