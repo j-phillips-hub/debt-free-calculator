@@ -1,6 +1,7 @@
 .makeAPaymentSection {
   background-color: var(--clr-light-grey);
   grid-area: m;
+  position: relative;
 }
 
 .form__label {

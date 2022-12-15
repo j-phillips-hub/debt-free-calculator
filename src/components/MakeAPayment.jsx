@@ -5,6 +5,7 @@ import PaymentsList from "./PaymentsList";
 import FontAwesomeIcon from "./FontAwesomeIcon";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
+import "../styles/DebtFreeMsg.css";
 
 class MakeAPayment extends React.Component {
   constructor() {
@@ -184,6 +185,11 @@ class MakeAPayment extends React.Component {
           paymentsMade={paymentsMade}
           balanceRemaining={balanceRemaining}
         />
+
+        <div className={balanceRemaining === 0 ? "debtFreeMsg" : "hidden"}>
+          <h1>You Are Debt Free</h1>
+        </div>
+
         <PaymentsList items={payments} />
       </React.Fragment>
     );
