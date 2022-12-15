@@ -11,6 +11,35 @@ function PaymentInfo(props) {
     paymentsMade,
     balanceRemaining,
   } = props;
+
+  const totalPaid = [
+    [
+      {
+        className: "flex totalPaid",
+        title: "Total Principle",
+        number: `$ ${paymentPrincipal}`,
+      },
+      {
+        className: "flex totalPaid",
+        title: "Total Interest",
+        number: `$ ${paymentInterest}`,
+      },
+    ],
+
+    [
+      {
+        className: "flex totalPaid",
+        title: "Number of Paymnets Made",
+        number: `$ ${paymentsMade}`,
+      },
+      {
+        className: "flex totalPaid",
+        title: "Balance Remaining",
+        number: `$ ${balanceRemaining}`,
+      },
+    ],
+  ];
+
   return (
     <section className="paymentInfoSection">
       <div className="paymentInfo">
@@ -20,31 +49,36 @@ function PaymentInfo(props) {
       </div>
 
       <div className="totalPaid">
-        <p className="flex totalPaid">
-          <span>Total Principal</span>
-          <span>${paymentPrincipal}</span>
-        </p>
-        <hr />
-        <p className="flex totalPaid">
-          <span>Total Interest</span>
-          <span>${paymentInterest}</span>
-        </p>
-        <p>{paymentsLeft} minimum payments left to pay off loan</p>
+        {totalPaid[0].map((item, index) => {
+          return (
+            <React.Fragment key={index}>
+              <p className={item.className}>
+                <span>{item.title}</span>
+                <span>{item.number}</span>
+              </p>
+              <hr />
+            </React.Fragment>
+          );
+        })}
       </div>
+
+      <p>{paymentsLeft} minimum payments left to pay off loan</p>
 
       <div className="paymentHistory">
         <h2 className="paymentHistory__header">Payment History</h2>
 
         <div className="totalPaid">
-          <p className="flex totalPaid">
-            <span> Number of Payments Made</span>
-            <span>{paymentsMade}</span>
-          </p>
-          <hr />
-          <p className="flex totalPaid">
-            <span>Balance Remaining</span>
-            <span>${balanceRemaining}</span>
-          </p>
+          {totalPaid[1].map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <p className={item.className}>
+                  <span>{item.title}</span>
+                  <span>{item.number}</span>
+                </p>
+                <hr />
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
     </section>
