@@ -47,7 +47,7 @@ function PaymentInfo(props) {
           </p>
         </div>
 
-        <h2 className="paymentHistory__debtFree">You Are Debt Free</h2>
+        <h2 className="paymentHistory__debtFree hidden">You Are Debt Free</h2>
       </div>
     </section>
   );

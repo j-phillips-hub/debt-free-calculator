@@ -102,3 +102,7 @@ ul {
 .inputContainer {
   flex-direction: column;
 }
+
+.hidden {
+  display: none;
+}
