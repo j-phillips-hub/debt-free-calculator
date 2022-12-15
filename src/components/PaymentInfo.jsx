@@ -46,8 +46,6 @@ function PaymentInfo(props) {
             <span>${balanceRemaining}</span>
           </p>
         </div>
-
-        <h2 className="paymentHistory__debtFree hidden">You Are Debt Free</h2>
       </div>
     </section>
   );
