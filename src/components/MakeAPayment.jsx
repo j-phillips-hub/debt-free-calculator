@@ -121,7 +121,6 @@ class MakeAPayment extends React.Component {
         htmlFor: "loan-amount",
         name: "loanAmount",
         icon: "fa-dollar-sign",
-        iconId: "dollarSign",
       },
       {
         id: "interestRate",
@@ -129,7 +128,6 @@ class MakeAPayment extends React.Component {
         htmlFor: "interest-rate",
         name: "interestRate",
         icon: "fa-percent",
-        iconId: "percentSign",
       },
     ];
 
@@ -157,8 +155,8 @@ class MakeAPayment extends React.Component {
                     htmlFor={htmlFor}
                     name={name}
                     handleInput={this.handleInput}
+                    icon={`fas ${icon}`}
                   />
-                  <FontAwesomeIcon icon={`fas ${icon}`} />
                 </React.Fragment>
               );
             })}

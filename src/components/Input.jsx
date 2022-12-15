@@ -1,7 +1,8 @@
 import React from "react";
+import FontAwesomeIcon from "./FontAwesomeIcon";
 
 function Input(props) {
-  const { label, htmlFor, name, handleInput } = props;
+  const { label, htmlFor, name, handleInput, icon } = props;
   return (
     <div className="flex inputContainer">
       <label className="form__label" htmlFor={htmlFor}>
@@ -15,6 +16,7 @@ function Input(props) {
         autoComplete="off"
         required
       />
+      <FontAwesomeIcon icon={`fas ${icon}`} />
     </div>
   );
 }
