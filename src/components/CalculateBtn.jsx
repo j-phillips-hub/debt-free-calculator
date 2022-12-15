@@ -1,8 +1,8 @@
 import React from "react";
 
-function CalculateBtn(props) {
+function CalculateBtn({ calculateValue }) {
   return (
-    <button onClick={props.calculateValue} className="btn btn--small calculate">
+    <button onClick={calculateValue} className="btn btn--small calculate">
       Calculate
     </button>
   );
