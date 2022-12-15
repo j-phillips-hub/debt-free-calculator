@@ -102,3 +102,8 @@ ul {
 .inputContainer {
   flex-direction: column;
 }
+
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

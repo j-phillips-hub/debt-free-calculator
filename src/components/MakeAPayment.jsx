@@ -3,7 +3,6 @@ import Input from "./Input";
 import PaymentInfo from "./PaymentInfo";
 import PaymentsList from "./PaymentsList";
 import FontAwesomeIcon from "./FontAwesomeIcon";
-import CalculateBtn from "./CalculateBtn";
 import "../styles/MakeAPayment.css";
 import "../styles/Btn.css";
 
@@ -19,6 +18,7 @@ class MakeAPayment extends React.Component {
       paymentInterest: 0,
       paymentsLeft: 0,
       paymentsMade: 0,
+      balanceRemaining: 0,
       payments: [],
     };
   }
@@ -39,7 +39,7 @@ class MakeAPayment extends React.Component {
 
     this.setState((prev) => {
       if (name === "interestRate") {
-        return { ...prev, [name]: value / 100 };
+        return { ...prev, [name]: +value / 100 };
       }
       return { ...prev, [name]: Number(value) };
     });
@@ -56,6 +56,7 @@ class MakeAPayment extends React.Component {
       paymentPrincipal: paymentPrincipal.toFixed(2),
       minimumPayment: minimumPayment.toFixed(2),
       paymentsLeft: loanAmount / paymentPrincipal,
+      balanceRemaining: loanAmount,
     });
     e.preventDefault();
   };
@@ -103,9 +104,11 @@ class MakeAPayment extends React.Component {
         minimumPayment: Math.max(0, newMinimumPayment.toFixed(2)),
         paymentsMade: (totalPaymentsMade += 1),
         paymentsLeft: Math.max(0, Math.ceil(newBalance / newPaymentPrincipal)),
+        balanceRemaining: Math.max(0, newBalance.toFixed(2)),
       });
       this.handlePaymentList();
     }
+
     e.preventDefault();
   };
 
@@ -118,6 +121,7 @@ class MakeAPayment extends React.Component {
       paymentsMade,
       loanAmount,
       payments,
+      balanceRemaining,
     } = this.state;
 
     return (
@@ -139,7 +143,16 @@ class MakeAPayment extends React.Component {
               name="interestRate"
             />
             <FontAwesomeIcon icon="fas fa-percent" />
-            <CalculateBtn calculateValue={this.handleCalculate} />
+            <button
+              className={
+                balanceRemaining === 0
+                  ? "btn btn--small calculate"
+                  : "btn btn--small disabled"
+              }
+              onClick={this.handleCalculate}
+            >
+              Calculate
+            </button>
           </form>
 
           <div className="makePayment">
@@ -152,7 +165,11 @@ class MakeAPayment extends React.Component {
             <FontAwesomeIcon icon="fas fa-dollar-sign" />
             <button
               onClick={this.handleMakePayment}
-              className="btn btn--large makeAPayment"
+              className={
+                loanAmount > 0
+                  ? "btn btn--large makeAPayment"
+                  : "btn btn--large disabled"
+              }
             >
               Make a payment
             </button>
@@ -165,7 +182,7 @@ class MakeAPayment extends React.Component {
           paymentInterest={paymentInterest}
           paymentsLeft={paymentsLeft}
           paymentsMade={paymentsMade}
-          balanceRemaining={loanAmount}
+          balanceRemaining={balanceRemaining}
         />
         <PaymentsList items={payments} />
       </React.Fragment>
