@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/debt-free-calculator/static/css/main.16610752.css",
+    "main.js": "/debt-free-calculator/static/js/main.fba01478.js",
+    "index.html": "/debt-free-calculator/index.html",
+    "main.16610752.css.map": "/debt-free-calculator/static/css/main.16610752.css.map",
+    "main.fba01478.js.map": "/debt-free-calculator/static/js/main.fba01478.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16610752.css",
+    "static/js/main.fba01478.js"
+  ]
+}
